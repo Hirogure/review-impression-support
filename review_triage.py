@@ -1,5 +1,6 @@
 import argparse
 import csv
+import datetime as dt
 import html
 import json
 import os
@@ -151,6 +152,18 @@ class TriageApp:
                 row["確認ステータス"] = "確認済み"
             write_csv(self.csv_path, self.fields, self.rows)
 
+    def append_note(self, index: int, note: str, decision: str = "") -> None:
+        with self.lock:
+            row = self.rows[index]
+            today = dt.datetime.now().strftime("%Y-%m-%d")
+            current = value(row, "メモ").strip()
+            addition = f"{today} {note}"
+            row["メモ"] = f"{current}\n{addition}".strip() if current else addition
+            row["確認ステータス"] = "確認済み"
+            if decision:
+                row["判断"] = decision
+            write_csv(self.csv_path, self.fields, self.rows)
+
     def stats(self) -> dict:
         total = len(self.rows)
         decisions = {"送信A": 0, "送信B": 0, "保留": 0, "除外": 0, "未判断": 0}
@@ -254,6 +267,12 @@ class TriageApp:
                   <button type="button" class="decision hold" data-decision="保留">保留</button>
                   <button type="button" class="decision exclude" data-decision="除外">除外</button>
                 </div>
+                <div class="quick-actions">
+                  <button type="button" class="quick" data-note="フォーム送信済み">フォーム送信済み</button>
+                  <button type="button" class="quick" data-note="営業NG表示ありのため見送り" data-decision="除外">営業NG見送り</button>
+                  <button type="button" class="quick" data-note="返信あり">返信あり</button>
+                  <button type="button" class="quick" data-note="無料チェック希望あり" data-decision="送信A">無料チェック希望</button>
+                </div>
               </form>
               <p id="status" class="muted"></p>
             </article>
@@ -296,6 +315,22 @@ class TriageApp:
           }});
 
           document.getElementById("top-save").addEventListener("click", () => save(false));
+
+          document.querySelectorAll(".quick").forEach(btn => {{
+            btn.addEventListener("click", async () => {{
+              const response = await fetch(`/api/append-note?i=${{index}}`, {{
+                method: "POST",
+                headers: {{ "Content-Type": "application/json" }},
+                body: JSON.stringify({{ note: btn.dataset.note, decision: btn.dataset.decision || "" }})
+              }});
+              if (!response.ok) {{
+                document.getElementById("status").textContent = "追記に失敗しました";
+                return;
+              }}
+              document.getElementById("status").textContent = "メモに追記しました";
+              window.location.reload();
+            }});
+          }});
 
           async function save(goNext) {{
             state["メモ"] = document.getElementById("notes").value;
@@ -396,6 +431,7 @@ class TriageApp:
             dd {{ margin: 0; overflow-wrap: anywhere; }}
             a {{ color: #0b57d0; text-decoration: none; font-weight: 700; }}
             .nav, .actions {{ display: flex; gap: 8px; flex-wrap: wrap; }}
+            .quick-actions {{ display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; padding-top: 12px; border-top: 1px solid var(--line); }}
             .btn, button {{ border: 1px solid #c8d2df; border-radius: 7px; background: #fff; padding: 8px 12px; cursor: pointer; font-weight: 700; color: #172033; }}
             .btn.primary, button.primary {{ background: #0b57d0; border-color: #0b57d0; color: #fff; }}
             .field-group {{ margin-bottom: 13px; }}
@@ -406,6 +442,7 @@ class TriageApp:
             .decision.send-b {{ background: #eef7ff; border-color: #8bbfe8; }}
             .decision.hold {{ background: #fff6df; border-color: #e3c268; }}
             .decision.exclude {{ background: #fdecec; border-color: #e6a0a0; }}
+            .quick {{ background: #f7f4ef; border-color: #ded8cf; }}
             textarea {{ width: 100%; box-sizing: border-box; border: 1px solid #c8d2df; border-radius: 7px; padding: 10px; font-family: inherit; font-size: 14px; }}
             .checklist {{ margin-top: 16px; }}
             .checklist li {{ margin: 5px 0; }}
@@ -443,7 +480,7 @@ def make_handler(app: TriageApp):
 
         def do_POST(self):
             parsed = urlparse(self.path)
-            if parsed.path != "/api/save":
+            if parsed.path not in {"/api/save", "/api/append-note"}:
                 self.send_error(404)
                 return
             params = parse_qs(parsed.query)
@@ -454,7 +491,10 @@ def make_handler(app: TriageApp):
             length = int(self.headers.get("Content-Length", "0"))
             payload = self.rfile.read(length).decode("utf-8")
             updates = json.loads(payload or "{}")
-            app.save_row(index, updates)
+            if parsed.path == "/api/save":
+                app.save_row(index, updates)
+            else:
+                app.append_note(index, updates.get("note", ""), updates.get("decision", ""))
             content = b'{"ok": true}'
             self.send_response(200)
             self.send_header("Content-Type", "application/json")
