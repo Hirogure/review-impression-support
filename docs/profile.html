@@ -1,0 +1,507 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>金光 弘昭 | AI活用・業務改善支援</title>
+  <style>
+    :root {
+      --bg: #f3f6f4;
+      --paper: #ffffff;
+      --ink: #17231f;
+      --muted: #68756f;
+      --line: #d9e3dd;
+      --green: #1f6f55;
+      --deep: #12372d;
+      --blue: #2c628d;
+      --amber: #a96327;
+      --soft-green: #e8f3ed;
+      --soft-blue: #eaf3f8;
+      --soft-amber: #fff3e6;
+      --cream: #fbfaf5;
+      --shadow: 0 14px 34px rgba(23, 35, 31, 0.065);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--bg);
+      font-family: "Aptos", "Segoe UI", "Yu Gothic UI", "Yu Gothic", Meiryo, sans-serif;
+      line-height: 1.72;
+      font-size: 15px;
+    }
+    header {
+      background:
+        linear-gradient(135deg, rgba(232, 243, 237, 0.92), rgba(251, 250, 245, 0.95)),
+        #fff;
+      border-bottom: 1px solid var(--line);
+      padding: 52px 20px 42px;
+    }
+    main, .inner { max-width: 1120px; margin: 0 auto; }
+    main { padding: 28px 18px 58px; }
+    section { scroll-margin-top: 24px; }
+    h1 {
+      margin: 0 0 14px;
+      font-size: clamp(31px, 5vw, 50px);
+      line-height: 1.15;
+      letter-spacing: 0;
+      color: var(--deep);
+    }
+    h2 {
+      margin: 42px 0 14px;
+      font-size: 24px;
+      line-height: 1.3;
+      color: var(--deep);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    h2:before {
+      content: "";
+      width: 32px;
+      height: 2px;
+      background: var(--green);
+      border-radius: 999px;
+    }
+    h3 { margin: 0 0 8px; font-size: 17px; }
+    p { margin: 7px 0 12px; }
+    ul { margin: 8px 0 12px; padding-left: 22px; }
+    li { margin: 5px 0; }
+    a { color: var(--blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .hero {
+      display: grid;
+      grid-template-columns: 1.4fr 300px;
+      gap: 28px;
+      align-items: center;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: var(--soft-blue);
+      border: 1px solid #c7d8eb;
+      color: #1c5182;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    .lead { max-width: 780px; color: #33434b; font-size: 18px; }
+    .name-line { color: var(--green); font-size: 15px; font-weight: 800; margin: 0 0 10px; }
+    .portrait {
+      width: 100%;
+      max-width: 280px;
+      aspect-ratio: 1;
+      border-radius: 8px;
+      border: 1px solid #cfdcd5;
+      object-fit: cover;
+      background: #fff;
+      box-shadow: 0 18px 42px rgba(31, 75, 58, 0.16);
+    }
+    .caption { color: var(--muted); font-size: 12px; margin-top: 8px; max-width: 280px; }
+    .summary {
+      display: grid;
+      grid-template-columns: 1.1fr 1.1fr 1fr 1.4fr;
+      gap: 14px;
+      margin-top: 0;
+    }
+    .metric, .card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px;
+      box-shadow: 0 10px 26px rgba(23, 35, 31, 0.045);
+    }
+    .metric {
+      position: relative;
+      min-height: 128px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .metric:after {
+      content: "";
+      position: absolute;
+      right: -22px;
+      bottom: -24px;
+      width: 82px;
+      height: 82px;
+      border-radius: 50%;
+      background: rgba(31, 111, 85, 0.08);
+    }
+    .metric strong { display: block; font-size: 32px; line-height: 1.1; margin-bottom: 5px; color: var(--deep); }
+    .metric span { color: var(--muted); font-size: 12px; }
+    .metric p { margin: 8px 0 0; color: #42504a; font-size: 13px; line-height: 1.55; }
+    .metric.wide { grid-column: span 1; background: linear-gradient(135deg, #fff, var(--cream)); }
+    .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+    .grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid.four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .band {
+      border-left: 5px solid var(--green);
+      background: var(--soft-green);
+      border-radius: 8px;
+      padding: 15px 17px;
+      margin: 16px 0;
+      box-shadow: 0 10px 24px rgba(31, 111, 85, 0.06);
+    }
+    .card {
+      position: relative;
+      overflow: hidden;
+    }
+    .card:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--green), rgba(44, 98, 141, 0.42));
+    }
+    .card h3 {
+      color: var(--deep);
+      letter-spacing: 0;
+    }
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      min-height: 24px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: var(--soft-green);
+      color: var(--green);
+      font-size: 11px;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+    .service-card {
+      min-height: 210px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.96), rgba(251,250,245,0.92)),
+        var(--paper);
+    }
+    .service-card .price-note {
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 12px;
+      border-top: 1px solid var(--line);
+      padding-top: 10px;
+    }
+    .band.warn {
+      border-left-color: var(--amber);
+      background: var(--soft-amber);
+    }
+    .timeline {
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .time, .work { padding: 13px 15px; border-bottom: 1px solid var(--line); }
+    .time { background: #eef4f1; font-weight: 700; }
+    .timeline div:nth-last-child(-n+2) { border-bottom: 0; }
+    .cta {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: var(--shadow);
+    }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: 8px 16px;
+      border-radius: 7px;
+      background: var(--green);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      margin-top: 8px;
+    }
+    .button.secondary {
+      background: #fff;
+      color: var(--green);
+      border: 1px solid var(--green);
+      margin-left: 8px;
+    }
+    .small { color: var(--muted); font-size: 12px; }
+    .footer { margin-top: 34px; padding-top: 16px; border-top: 1px solid var(--line); color: var(--muted); font-size: 12px; }
+    @media (max-width: 900px) {
+      .hero, .summary, .grid, .grid.two, .grid.four { grid-template-columns: 1fr; }
+      .portrait { max-width: 220px; }
+      .timeline { grid-template-columns: 1fr; }
+      .time { border-bottom: 0; }
+      header { padding: 30px 16px 24px; }
+      main { padding: 20px 14px 44px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="inner hero">
+      <div>
+        <div class="eyebrow">AI活用・業務改善・Webディレクション</div>
+        <p class="name-line">金光 弘昭 / 活動名: K.Hiro</p>
+        <h1>現場の手作業を整理し、AIと自動化で無理なく軽くします。</h1>
+        <p class="lead">生成AI・業務自動化を軸に、業務改善やDX推進を支援しています。Webディレクターとして約15年、累計100件以上の制作・運用案件に携わってきました。</p>
+        <p>要件定義、進行管理、クライアント折衝、品質管理まで経験しているため、単にツールを導入するだけでなく、現場の業務フローを整理し「どこをAI化・自動化すると効果が出るか」を一緒に考え、実装・運用まで伴走できます。</p>
+        <a class="button" href="mailto:hiroaki.kanemitsu@gmail.com">相談する</a>
+        <a class="button secondary" href="#services">サービス例を見る</a>
+      </div>
+      <div>
+        <img class="portrait" src="k_hiro_icon.png" alt="K.Hiroのプロフィール画像">
+        <p class="caption">プロフィール画像はAI生成です。実物の雰囲気に近い形で、やわらかく見えるように作っています。</p>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="summary">
+      <div class="metric">
+        <div><strong>15年</strong><span>Webディレクション経験</span></div>
+        <p>要件定義、進行管理、品質管理まで一貫して対応。</p>
+      </div>
+      <div class="metric">
+        <div><strong>100件+</strong><span>制作・運用案件</span></div>
+        <p>企業LP、大学、美容医療、メディア、運用更新などを経験。</p>
+      </div>
+      <div class="metric">
+        <div><strong>2021年〜</strong><span>フリーランスとして活動</span></div>
+        <p>複数企業のWeb制作・運用・改善支援に参画。</p>
+      </div>
+      <div class="metric wide">
+        <div><strong>AI × 実務</strong><span>提案ではなく運用まで支援</span></div>
+        <p>Claude、ChatGPT、Notion、GAS、Pythonを実務に組み込み、日々の作業を小さく改善。</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>外部プロフィール</h2>
+      <div class="grid two">
+        <div class="card">
+          <h3>クラウドワークス</h3>
+          <p>業務改善、AI活用、Webディレクション関連の相談窓口として利用しています。</p>
+          <p><a href="https://crowdworks.jp/public/employees/6026627">クラウドワークスのプロフィールを見る</a></p>
+        </div>
+        <div class="card">
+          <h3>ランサーズ</h3>
+          <p>プロフィールとポートフォリオを掲載しています。過去の制作・支援領域の確認に使えます。</p>
+          <p><a href="https://www.lancers.jp/profile/hirogue">ランサーズのプロフィールを見る</a></p>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <h2>サービス例</h2>
+      <div class="grid four">
+        <div class="card service-card">
+          <div>
+            <span class="kicker">01 / CONSULTING</span>
+            <h3>AI活用・業務改善ミニ診断</h3>
+            <p>いまの業務を伺い、AI化・自動化しやすい作業、人が判断すべき作業、最初に試すべき改善案を整理します。</p>
+          </div>
+          <p class="price-note">初回相談、業務棚卸し、改善優先度づけ</p>
+        </div>
+        <div class="card service-card">
+          <div>
+            <span class="kicker">02 / OPERATIONS</span>
+            <h3>問い合わせ・返信テンプレ整備</h3>
+            <p>よくある問い合わせ、初回返信、確認事項、フォロー文面を整理し、対応のバラつきを減らしやすくします。</p>
+          </div>
+          <p class="price-note">小規模事業者、店舗、士業、スクール向け</p>
+        </div>
+        <div class="card service-card">
+          <div>
+            <span class="kicker">03 / AUTOMATION</span>
+            <h3>Notion / GAS 自動化</h3>
+            <p>議事録、タスク、通知、スプレッドシート、日次レポートなど、くり返し作業を小さく自動化します。</p>
+          </div>
+          <p class="price-note">Notion、Google Workspace、Chatwork連携</p>
+        </div>
+        <div class="card service-card">
+          <div>
+            <span class="kicker">04 / WEB DIRECTION</span>
+            <h3>Web制作・運用改善</h3>
+            <p>要件整理、導線設計、制作進行、品質チェック、公開後の改善まで、現場の調整役として入れます。</p>
+          </div>
+          <p class="price-note">LP、サイト更新、運用改善、提案資料</p>
+        </div>
+      </div>
+      <p class="small">個別提案例: <a href="reform_inquiry_pack_lp.html">リフォーム会社向け 問い合わせ・現地調査前ヒアリング整備パック</a></p>
+    </section>
+
+    <section>
+      <h2>こんなご相談に対応できます</h2>
+      <div class="grid">
+        <div class="card">
+          <span class="kicker">START</span>
+          <h3>AI活用・業務改善の相談</h3>
+          <p>「AIを使いたいが何から始めればよいかわからない」段階から、現状整理、優先順位づけ、進め方の提案まで対応します。</p>
+        </div>
+        <div class="card">
+          <span class="kicker">TOOLS</span>
+          <h3>Notion / GAS / Pythonの自動化</h3>
+          <p>案件管理、議事録、進捗レポート、通知、転記、定型レポート作成など、日々の手作業を小さく自動化します。</p>
+        </div>
+        <div class="card">
+          <span class="kicker">WEB</span>
+          <h3>Web制作・運用ディレクション</h3>
+          <p>要件整理、ワイヤー設計、制作進行、品質チェック、公開後の運用まで、現場に入って調整できます。</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>最初に相談しやすいテーマ</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>問い合わせ対応の整理</h3>
+          <p>よくある質問、初回返信、確認事項、追客文面などを整理し、担当者ごとのバラつきを減らしやすくします。</p>
+        </div>
+        <div class="card">
+          <h3>日々のレポート作成</h3>
+          <p>スプレッドシートやNotionの情報をもとに、進捗確認、要約、日次・週次レポート作成を効率化します。</p>
+        </div>
+        <div class="card">
+          <h3>議事録・タスク管理</h3>
+          <p>会議内容の整理、タスク化、関係者への通知、ステータス更新など、会議後の手作業を減らします。</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>強み</h2>
+      <div class="band">
+        <p><strong>AIツールの紹介で終わらせず、現場で使い続けられる形に落とし込みます。</strong></p>
+        <p>自分自身も複数案件をAIと自動化で運用しており、机上の提案ではなく、実務で試しながら改善している点が強みです。既存の業務を大きく変えすぎず、小さく試して効果を見ながら進めます。</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>対応できること</h2>
+      <div class="grid two">
+        <div class="card">
+          <ul>
+            <li>AI活用、業務改善の相談</li>
+            <li>業務フロー整理、効率化提案</li>
+            <li>Notionを使った案件管理、タスク管理、情報整理</li>
+            <li>GAS、Python等を使った通知、転記、レポート作成の自動化</li>
+          </ul>
+        </div>
+        <div class="card">
+          <ul>
+            <li>議事録、要件整理、提案書作成の効率化</li>
+            <li>Web制作、Web運用のディレクション</li>
+            <li>非エンジニア向けのわかりやすい説明、伴走支援</li>
+            <li>AIを使った業務の棚卸し、優先順位づけ</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>実績例</h2>
+      <div class="grid two">
+        <div class="card">
+          <h3>AI・業務自動化</h3>
+          <ul>
+            <li>Google Meet議事録をNotionへ自動格納し、Chatworkへ通知するフロー構築</li>
+            <li>案件情報の自動取得、AIスコアリング</li>
+            <li>毎朝のプロジェクト状況レポート自動生成</li>
+            <li>AI、Web活用をテーマにした動画講座の制作、講師担当</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Web制作・運用</h3>
+          <ul>
+            <li><a href="https://www.aizawa.co.jp/lp/account_opening/">アイザワ証券: 口座開設LP制作</a></li>
+            <li><a href="https://www.itoen.jp/oiocha/challenge/index.html">伊藤園「お〜いお茶」: 茶レンジLP制作</a></li>
+            <li><a href="https://www.nagoya-ku.ac.jp/">名古屋経済大学: サイト更新・改修対応</a></li>
+            <li><a href="https://www.tsutsui-biyo.com/">ツツイ美容外科: サイト運用・改修ディレクション</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>対応しないこと</h2>
+      <div class="band warn">
+        <p>AIで何でも自動化するのではなく、リスクの高い判断は人が確認する前提で設計します。法律・税務・医療などの専門判断、顧客への完全自動返信、個人情報を含むデータの無断利用、成果保証を前提にした施策は対応範囲外です。</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>使っているツール</h2>
+      <div class="card">
+        <p>Claude、ChatGPT、Notion、Google Apps Script、Python、Google Workspace、Chatwork、Slack、Backlog、Figma、Adobe XD など。</p>
+        <p>Notionでは、案件情報・タスク・議事録・進捗状況を一元管理し、AIと連携して要約、優先順位づけ、日次レポート作成に活用しています。GASでは、Googleフォーム、スプレッドシート、Gmail、Chatwork、Notion APIなどを連携し、議事録の格納、通知、定型レポート作成、ステータス更新などを自動化しています。</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>進め方</h2>
+      <div class="timeline">
+        <div class="time">1. ヒアリング</div>
+        <div class="work">現状の業務、困っている手作業、使っているツールを確認します。</div>
+        <div class="time">2. 整理</div>
+        <div class="work">業務フローを見える化し、AI化・自動化しやすい箇所と、人が判断すべき箇所を分けます。</div>
+        <div class="time">3. 小さく実装</div>
+        <div class="work">いきなり大きく変えず、通知、転記、要約、レポートなど小さな自動化から試します。</div>
+        <div class="time">4. 運用改善</div>
+        <div class="work">実際に使ってみた結果を見ながら、テンプレート、プロンプト、管理方法を改善します。</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>初回相談で確認すること</h2>
+      <div class="grid two">
+        <div class="card">
+          <ul>
+            <li>いま一番時間がかかっている手作業</li>
+            <li>使っているツール、管理表、連絡手段</li>
+            <li>毎日・毎週くり返している作業</li>
+            <li>人が判断すべきこと、自動化してよいこと</li>
+          </ul>
+        </div>
+        <div class="card">
+          <ul>
+            <li>小さく試せる最初の改善案</li>
+            <li>実装に必要な情報と注意点</li>
+            <li>費用感と進め方</li>
+            <li>やらない方がよい自動化</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>大切にしていること</h2>
+      <div class="band warn">
+        <p>AIや自動化は、現場の人が使い続けられて初めて意味があります。難しい言葉で押し切るのではなく、今ある業務を尊重しながら、無理なく効果が出るところから一緒に整えます。</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>相談について</h2>
+      <div class="cta">
+        <p>平日日中を中心に対応しています。ご連絡には原則、翌営業日以内に返信します。</p>
+        <p>「AIを使いたいが何から始めればよいかわからない」「手作業を減らしたい」という段階でも大丈夫です。現状を伺い、実現できること、優先順位、進め方をわかりやすくご提案します。</p>
+        <a class="button" href="mailto:hiroaki.kanemitsu@gmail.com">メールで相談する</a>
+        <a class="button secondary" href="#services">サービス例を見る</a>
+        <p class="small">外部プロフィール: <a href="https://crowdworks.jp/public/employees/6026627">クラウドワークス</a> / <a href="https://www.lancers.jp/profile/hirogue">ランサーズ</a></p>
+      </div>
+    </section>
+
+    <p class="footer">このページは営業前の信頼補強用プロフィールページです。職務経歴書、履歴書、提供プロフィール文をもとに作成しています。</p>
+  </main>
+</body>
+</html>
