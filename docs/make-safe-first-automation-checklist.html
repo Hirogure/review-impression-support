@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Your First Safe Automation | A Checklist for Solo Operators</title>
+  <meta name="description" content="Choose a low-risk first automation workflow before comparing Make, n8n, or other tools.">
+  <style>
+    :root { --ink:#15221f; --muted:#536460; --paper:#f7f4ee; --card:#fff; --line:#d8ddd9; --accent:#6551d8; --soft:#eeeafe; --green:#287665; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; color:var(--ink); background:var(--paper); font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif; line-height:1.65; }
+    a { color:inherit; }
+    .wrap { width:min(1080px,calc(100% - 36px)); margin:auto; }
+    .disclosure { padding:10px 0; background:#201d32; color:#f7f4ff; font-size:13px; }
+    .hero { padding:72px 0 54px; display:grid; grid-template-columns:1.2fr .8fr; gap:40px; align-items:center; }
+    .eyebrow { color:var(--accent); font-size:13px; font-weight:850; letter-spacing:.13em; text-transform:uppercase; }
+    h1 { margin:12px 0 20px; max-width:780px; font-size:clamp(42px,6vw,78px); line-height:.98; letter-spacing:-.055em; }
+    .lead { max-width:720px; font-size:20px; color:var(--muted); }
+    .button { display:inline-block; margin-top:22px; padding:14px 20px; border-radius:12px; background:var(--accent); color:#fff; text-decoration:none; font-weight:800; }
+    .button.secondary { margin-left:8px; color:var(--ink); background:transparent; border:1px solid var(--line); }
+    .flow { padding:24px; background:var(--card); border:1px solid var(--line); border-radius:20px; box-shadow:0 15px 35px rgba(31,38,36,.08); }
+    .flow h2 { margin:0 0 14px; font-size:17px; }
+    .nodes { display:grid; gap:10px; }
+    .node { padding:15px 17px; border-radius:12px; background:#f3f4f2; font-weight:750; }
+    .node.review { background:var(--soft); border:2px solid var(--accent); }
+    main section { padding:48px 0; border-top:1px solid var(--line); }
+    h2 { margin:0 0 14px; font-size:32px; letter-spacing:-.025em; }
+    h3 { margin:26px 0 8px; font-size:20px; }
+    p, li { max-width:800px; }
+    .grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:24px; }
+    .card { padding:22px; border:1px solid var(--line); border-radius:16px; background:var(--card); }
+    .card b { display:block; margin-bottom:8px; }
+    .good { border-top:5px solid var(--green); }
+    .risk { border-top:5px solid #b65846; }
+    .checklist { columns:2; column-gap:40px; padding-left:22px; }
+    .checklist li { margin:0 0 12px; break-inside:avoid; }
+    table { width:100%; border-collapse:collapse; margin-top:22px; background:var(--card); }
+    th,td { padding:13px; border:1px solid var(--line); text-align:left; vertical-align:top; }
+    th { background:#eef1ee; }
+    .cta { padding:36px; border-radius:22px; background:#17231f; color:#fff; }
+    .cta p { color:#d8e1dd; }
+    .cta small { display:block; margin-top:16px; color:#b8c6c1; }
+    footer { padding:30px 0 48px; color:var(--muted); font-size:13px; }
+    @media (max-width:780px) { .hero,.grid { grid-template-columns:1fr; } .hero { padding-top:46px; } .checklist { columns:1; } .button.secondary { margin-left:0; } }
+  </style>
+</head>
+<body>
+  <div class="disclosure"><div class="wrap">Affiliate disclosure: This page contains a Make affiliate link. If you sign up or become a paid customer through it, I may earn a commission. Verify current pricing and terms on Make’s official site.</div></div>
+  <header class="wrap hero">
+    <div>
+      <div class="eyebrow">Safe automation for solo operators</div>
+      <h1>Choose the workflow before you choose the tool.</h1>
+      <p class="lead">Make vs n8n is not the first question. Start with a repeatable internal task, keep a human review step, and automate only what you can inspect and stop.</p>
+      <a class="button" href="#checklist">Use the 7-point checklist</a>
+      <a class="button secondary" href="#tools">See the tool-fit table</a>
+    </div>
+    <aside class="flow" aria-label="A safer first automation workflow">
+      <h2>A safer first workflow</h2>
+      <div class="nodes">
+        <div class="node">1. Capture a request</div>
+        <div class="node">2. Add it to a sheet or task list</div>
+        <div class="node review">3. Review it yourself</div>
+        <div class="node">4. Then send, publish, or update</div>
+      </div>
+    </aside>
+  </header>
+
+  <main class="wrap">
+    <section>
+      <h2>Automate the internal step first</h2>
+      <p>A first automation should remove a repetitive step without contacting a client, publishing content, charging money, or changing a live record on its own. The useful starting point is usually capture, sorting, or draft preparation—not the final external action.</p>
+      <div class="grid">
+        <div class="card good"><b>Good first task</b>Form response → spreadsheet → review task.</div>
+        <div class="card good"><b>Good first task</b>Email details → draft checklist → human approval.</div>
+        <div class="card risk"><b>Risky first task</b>Automatic client email, invoice, public post, or irreversible update.</div>
+      </div>
+    </section>
+
+    <section id="checklist">
+      <h2>The 7-point safe-first checklist</h2>
+      <ol class="checklist">
+        <li>Is the task repeated often enough to matter?</li>
+        <li>Can you inspect the output quickly?</li>
+        <li>Can it fail without contacting a client?</li>
+        <li>Is there a human approval step?</li>
+        <li>Can you turn it off easily?</li>
+        <li>Can you measure time saved or errors prevented?</li>
+        <li>Can you identify which source produced the signup or click?</li>
+      </ol>
+    </section>
+
+    <section id="tools">
+      <h2>Choose the tool after the workflow</h2>
+      <table>
+        <thead><tr><th>Tool</th><th>Useful first fit</th><th>Watch out for</th></tr></thead>
+        <tbody>
+          <tr><td>Make</td><td>Visual workflows across several apps</td><td>Keep client-facing actions behind review</td></tr>
+          <tr><td>n8n</td><td>Technical logic and self-hosted options</td><td>More setup and maintenance responsibility</td></tr>
+          <tr><td>Jotform / Typeform / Tally</td><td>Structured intake and form-first workflows</td><td>A broader automation platform may be unnecessary</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <div class="cta">
+        <h2>Does the capture → review pattern fit your work?</h2>
+        <p>Make is one tool you can evaluate for a visual, app-to-app workflow. It is not automatically the best choice. Confirm the current features, pricing, and terms before deciding.</p>
+        <a class="button" href="https://www.make.com/en/register?pc=hiroautomation&amp;affiliatesource=article_make_safe_first_automation">Check Make’s official signup page</a>
+        <small>This is an affiliate link. If you sign up or upgrade through it, I may receive a commission.</small>
+      </div>
+    </section>
+  </main>
+  <footer class="wrap">Independent educational checklist for solo operators. No income, savings, or performance result is promised.</footer>
+</body>
+</html>
