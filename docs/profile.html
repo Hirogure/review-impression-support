@@ -3,533 +3,351 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>金光 弘昭 | AI活用・業務改善支援</title>
+  <meta name="description" content="AI業務改善、Web運用、公開前QAを、現場で続けられる形へ整えるK.Hiroのプロフィール。">
+  <link rel="canonical" href="https://hirogure.github.io/review-impression-support/profile.html">
+  <title>K.Hiro | AI業務改善・Web運用</title>
   <style>
     :root {
-      --bg: #f3f6f4;
-      --paper: #ffffff;
-      --ink: #17231f;
-      --muted: #68756f;
-      --line: #d9e3dd;
-      --green: #1f6f55;
-      --deep: #12372d;
-      --blue: #2c628d;
-      --amber: #a96327;
-      --soft-green: #e8f3ed;
-      --soft-blue: #eaf3f8;
-      --soft-amber: #fff3e6;
-      --cream: #fbfaf5;
-      --shadow: 0 14px 34px rgba(23, 35, 31, 0.065);
+      --ink: #172126;
+      --muted: #5f6d70;
+      --paper: #f6f4ef;
+      --white: #fff;
+      --line: #d7ddd8;
+      --accent: #0d6257;
+      --accent-dark: #084a42;
+      --soft: #e6f0ed;
+      --warm: #d98562;
+      --radius: 24px;
+      --shadow: 0 24px 70px rgba(23, 33, 38, .10);
     }
+
     * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
       margin: 0;
       color: var(--ink);
-      background: var(--bg);
-      font-family: "Aptos", "Segoe UI", "Yu Gothic UI", "Yu Gothic", Meiryo, sans-serif;
-      line-height: 1.72;
-      font-size: 15px;
+      background: var(--paper);
+      font-family: "Yu Gothic", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
     }
-    header {
-      background:
-        linear-gradient(135deg, rgba(232, 243, 237, 0.92), rgba(251, 250, 245, 0.95)),
-        #fff;
-      border-bottom: 1px solid var(--line);
-      padding: 52px 20px 42px;
-    }
-    main, .inner { max-width: 1120px; margin: 0 auto; }
-    main { padding: 28px 18px 58px; }
-    section { scroll-margin-top: 24px; }
-    h1 {
-      margin: 0 0 14px;
-      font-size: clamp(31px, 5vw, 50px);
-      line-height: 1.15;
-      letter-spacing: 0;
-      color: var(--deep);
-    }
-    h2 {
-      margin: 42px 0 14px;
-      font-size: 24px;
-      line-height: 1.3;
-      color: var(--deep);
+    a { color: inherit; }
+    .wrap { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+    .site-header {
       display: flex;
       align-items: center;
-      gap: 10px;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 24px 0;
     }
-    h2:before {
-      content: "";
-      width: 32px;
-      height: 2px;
-      background: var(--green);
-      border-radius: 999px;
-    }
-    h3 { margin: 0 0 8px; font-size: 17px; }
-    p { margin: 7px 0 12px; }
-    ul { margin: 8px 0 12px; padding-left: 22px; }
-    li { margin: 5px 0; }
-    a { color: var(--blue); text-decoration: none; }
-    a:hover { text-decoration: underline; }
+    .brand { font-weight: 800; letter-spacing: .04em; text-decoration: none; }
+    .header-note { margin: 0; color: var(--muted); font-size: .84rem; }
     .hero {
       display: grid;
-      grid-template-columns: 1.4fr 300px;
-      gap: 28px;
+      grid-template-columns: minmax(0, 1.25fr) minmax(300px, .75fr);
+      gap: 56px;
       align-items: center;
+      min-height: 590px;
+      padding: 64px 0 84px;
     }
     .eyebrow {
       display: inline-flex;
       align-items: center;
-      min-height: 30px;
-      padding: 4px 10px;
-      border-radius: 999px;
-      background: var(--soft-blue);
-      border: 1px solid #c7d8eb;
-      color: #1c5182;
-      font-size: 13px;
-      font-weight: 700;
-      margin-bottom: 16px;
-    }
-    .lead { max-width: 780px; color: #33434b; font-size: 18px; }
-    .name-line { color: var(--green); font-size: 15px; font-weight: 800; margin: 0 0 10px; }
-    .portrait {
-      width: 100%;
-      max-width: 280px;
-      aspect-ratio: 1;
-      border-radius: 8px;
-      border: 1px solid #cfdcd5;
-      object-fit: cover;
-      background: #fff;
-      box-shadow: 0 18px 42px rgba(31, 75, 58, 0.16);
-    }
-    .caption { color: var(--muted); font-size: 12px; margin-top: 8px; max-width: 280px; }
-    .summary {
-      display: grid;
-      grid-template-columns: 1.1fr 1.1fr 1fr 1.4fr;
-      gap: 14px;
-      margin-top: 0;
-    }
-    .metric, .card {
-      background: var(--paper);
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      padding: 16px;
-      box-shadow: 0 10px 26px rgba(23, 35, 31, 0.045);
-    }
-    .metric {
-      position: relative;
-      min-height: 128px;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    .metric:after {
-      content: "";
-      position: absolute;
-      right: -22px;
-      bottom: -24px;
-      width: 82px;
-      height: 82px;
-      border-radius: 50%;
-      background: rgba(31, 111, 85, 0.08);
-    }
-    .metric strong { display: block; font-size: 32px; line-height: 1.1; margin-bottom: 5px; color: var(--deep); }
-    .metric span { color: var(--muted); font-size: 12px; }
-    .metric p { margin: 8px 0 0; color: #42504a; font-size: 13px; line-height: 1.55; }
-    .metric.wide { grid-column: span 1; background: linear-gradient(135deg, #fff, var(--cream)); }
-    .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
-    .grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .grid.four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-    .band {
-      border-left: 5px solid var(--green);
-      background: var(--soft-green);
-      border-radius: 8px;
-      padding: 15px 17px;
-      margin: 16px 0;
-      box-shadow: 0 10px 24px rgba(31, 111, 85, 0.06);
-    }
-    .card {
-      position: relative;
-      overflow: hidden;
-    }
-    .card:before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--green), rgba(44, 98, 141, 0.42));
-    }
-    .card h3 {
-      color: var(--deep);
-      letter-spacing: 0;
-    }
-    .kicker {
-      display: inline-flex;
-      align-items: center;
-      min-height: 24px;
-      padding: 2px 8px;
-      border-radius: 999px;
-      background: var(--soft-green);
-      color: var(--green);
-      font-size: 11px;
+      gap: 10px;
+      margin: 0 0 20px;
+      color: var(--accent);
+      font-size: .78rem;
       font-weight: 800;
-      margin-bottom: 10px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
     }
-    .service-card {
-      min-height: 210px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      background:
-        linear-gradient(180deg, rgba(255,255,255,0.96), rgba(251,250,245,0.92)),
-        var(--paper);
+    .eyebrow::before { content: ""; width: 36px; height: 2px; background: currentColor; }
+    h1 {
+      max-width: 790px;
+      margin: 0;
+      font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+      font-size: clamp(2.55rem, 6vw, 5.35rem);
+      font-weight: 600;
+      letter-spacing: -.045em;
+      line-height: 1.08;
     }
-    .service-card .price-note {
-      margin-top: 12px;
-      color: var(--muted);
-      font-size: 12px;
-      border-top: 1px solid var(--line);
-      padding-top: 10px;
-    }
-    .band.warn {
-      border-left-color: var(--amber);
-      background: var(--soft-amber);
-    }
-    .timeline {
-      display: grid;
-      grid-template-columns: 150px 1fr;
-      background: var(--paper);
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      overflow: hidden;
-    }
-    .time, .work { padding: 13px 15px; border-bottom: 1px solid var(--line); }
-    .time { background: #eef4f1; font-weight: 700; }
-    .timeline div:nth-last-child(-n+2) { border-bottom: 0; }
-    .cta {
-      background: #fff;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      padding: 20px;
-      box-shadow: var(--shadow);
-    }
+    .lead { max-width: 690px; margin: 30px 0 0; color: #3f4c50; font-size: 1.07rem; }
+    .actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 32px; }
     .button {
       display: inline-flex;
+      min-height: 52px;
       align-items: center;
       justify-content: center;
-      min-height: 42px;
-      padding: 8px 16px;
-      border-radius: 7px;
-      background: var(--green);
-      color: #fff;
+      padding: 13px 22px;
+      border: 1px solid var(--accent);
+      border-radius: 999px;
+      background: var(--accent);
+      color: var(--white);
+      font-weight: 800;
       text-decoration: none;
-      font-weight: 700;
-      margin-top: 8px;
+      transition: transform .2s ease, background .2s ease;
     }
-    .button.secondary {
-      background: #fff;
-      color: var(--green);
-      border: 1px solid var(--green);
-      margin-left: 8px;
+    .button:hover { transform: translateY(-2px); background: var(--accent-dark); }
+    .text-link { display: inline-flex; align-items: center; gap: 7px; color: var(--accent-dark); font-weight: 800; text-underline-offset: 5px; }
+    .identity-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 430px;
+      padding: 38px;
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 36px;
+      background: linear-gradient(145deg, #123c38 0%, #0d6257 58%, #328277 100%);
+      box-shadow: var(--shadow);
+      color: var(--white);
     }
-    .small { color: var(--muted); font-size: 12px; }
-    .footer { margin-top: 34px; padding-top: 16px; border-top: 1px solid var(--line); color: var(--muted); font-size: 12px; }
-    @media (max-width: 900px) {
-      .hero, .summary, .grid, .grid.two, .grid.four { grid-template-columns: 1fr; }
-      .portrait { max-width: 220px; }
-      .timeline { grid-template-columns: 1fr; }
-      .time { border-bottom: 0; }
-      header { padding: 30px 16px 24px; }
-      main { padding: 20px 14px 44px; }
+    .identity-card::after {
+      content: "";
+      position: absolute;
+      right: -90px;
+      bottom: -100px;
+      width: 280px;
+      height: 280px;
+      border: 1px solid rgba(255,255,255,.25);
+      border-radius: 50%;
+      box-shadow: 0 0 0 42px rgba(255,255,255,.06), 0 0 0 84px rgba(255,255,255,.035);
+    }
+    .portrait {
+      display: block;
+      width: 142px;
+      height: 142px;
+      object-fit: cover;
+      border: 4px solid rgba(255,255,255,.72);
+      border-radius: 50%;
+      box-shadow: 0 14px 32px rgba(0,0,0,.18);
+    }
+    .identity-card h2 { margin: 28px 0 8px; color: var(--white); font-size: 2rem; }
+    .identity-card p { position: relative; z-index: 1; max-width: 290px; margin: 0; color: rgba(255,255,255,.83); }
+    .identity-card .photo-note { margin-top: 11px; color: rgba(255,255,255,.68); font-size: .72rem; }
+    .identity-meta { display: grid; gap: 12px; margin-top: 34px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,.24); font-size: .86rem; }
+    .metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; margin-bottom: 92px; overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius); background: var(--line); }
+    .metric { min-height: 150px; padding: 30px; background: var(--white); }
+    .metric strong { display: block; color: var(--accent-dark); font-family: Georgia, serif; font-size: clamp(2.2rem, 5vw, 4rem); line-height: 1; }
+    .metric span { display: block; margin-top: 14px; color: var(--muted); font-size: .92rem; }
+    section { margin: 0 0 92px; }
+    .section-head { display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: 34px; margin-bottom: 34px; }
+    .kicker { margin: 5px 0 0; color: var(--accent); font-size: .75rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
+    h2 { margin: 0; font-family: "Yu Mincho", "Hiragino Mincho ProN", serif; font-size: clamp(1.9rem, 4vw, 3.2rem); line-height: 1.25; }
+    .section-copy { max-width: 780px; margin: 18px 0 0; color: var(--muted); }
+    .services { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .service { padding: 28px; border: 1px solid var(--line); border-radius: 20px; background: rgba(255,255,255,.72); }
+    .service-number { color: var(--warm); font-family: Georgia, serif; font-size: 1rem; font-weight: 700; }
+    .service h3 { margin: 34px 0 10px; font-size: 1.16rem; line-height: 1.45; }
+    .service p { margin: 0; color: var(--muted); font-size: .94rem; }
+    .offer-grid { grid-template-columns: repeat(2, 1fr); }
+    .offer-card { display: flex; flex-direction: column; align-items: flex-start; min-height: 310px; }
+    .offer-card .offer-copy { flex: 1; }
+    .offer-card .offer-price { margin: 18px 0 0; color: var(--accent-dark); font-size: 1.05rem; font-weight: 800; }
+    .offer-card .offer-note { margin-top: 12px; font-size: .78rem; }
+    .offer-card .button { margin-top: 24px; }
+    .work-list { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .work {
+      display: grid;
+      grid-template-columns: 46px minmax(0, 1fr);
+      gap: 18px;
+      padding: 24px;
+      border-top: 1px solid var(--line);
+      background: transparent;
+    }
+    .work-mark { display: grid; width: 42px; height: 42px; place-items: center; border-radius: 50%; background: var(--soft); color: var(--accent-dark); font-weight: 800; }
+    .work h3 { margin: 0 0 5px; font-size: 1.02rem; }
+    .work p { margin: 0; color: var(--muted); font-size: .9rem; }
+    .principle {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(280px, .95fr);
+      gap: 46px;
+      padding: 48px;
+      border-radius: 30px;
+      background: #172d31;
+      color: var(--white);
+    }
+    .principle h2 { color: var(--white); }
+    .principle p { margin: 16px 0 0; color: #c9d6d6; }
+    .principle ul { display: grid; gap: 16px; margin: 0; padding: 0; list-style: none; }
+    .principle li { position: relative; padding-left: 27px; }
+    .principle li::before { content: ""; position: absolute; left: 0; top: .68em; width: 10px; height: 10px; border-radius: 50%; background: #79c0b4; }
+    .contact {
+      padding: 56px;
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      background: var(--white);
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(23,33,38,.06);
+    }
+    .contact h2 { max-width: 720px; margin: 0 auto; }
+    .contact p { max-width: 650px; margin: 18px auto 28px; color: var(--muted); }
+    footer { display: flex; justify-content: space-between; gap: 20px; padding: 0 0 34px; color: var(--muted); font-size: .78rem; }
+    footer a { color: var(--accent-dark); font-weight: 700; text-underline-offset: 4px; }
+    .focus-visible, a:focus-visible { outline: 3px solid #f0ae78; outline-offset: 4px; }
+
+    @media (max-width: 820px) {
+      .hero { grid-template-columns: 1fr; min-height: auto; padding-top: 42px; }
+      .identity-card { min-height: 350px; }
+      .identity-card h2 { margin-top: 26px; }
+      .metrics, .services { grid-template-columns: 1fr; }
+      .metric { min-height: auto; }
+      .section-head { grid-template-columns: 1fr; gap: 12px; }
+      .work-list { grid-template-columns: 1fr; }
+      .principle { grid-template-columns: 1fr; padding: 34px; }
+    }
+
+    @media (max-width: 520px) {
+      .wrap { width: min(100% - 26px, 1120px); }
+      .site-header { align-items: flex-start; }
+      .header-note { max-width: 160px; text-align: right; }
+      .hero { gap: 34px; padding-bottom: 58px; }
+      h1 { font-size: clamp(2.42rem, 13vw, 3.65rem); }
+      .lead { font-size: 1rem; }
+      .actions { align-items: stretch; flex-direction: column; }
+      .button { width: 100%; }
+      .identity-card { padding: 28px; border-radius: 26px; }
+      .metrics, section { margin-bottom: 64px; }
+      .service, .work { padding: 22px; }
+      .contact { padding: 38px 24px; }
+      footer { flex-direction: column; }
     }
   </style>
 </head>
 <body>
-  <header>
-    <div class="inner hero">
-      <div>
-        <div class="eyebrow">AI活用・業務改善・Webディレクション</div>
-        <p class="name-line">金光 弘昭 / 活動名: K.Hiro</p>
-        <h1>現場の手作業を整理し、AIと自動化で無理なく軽くします。</h1>
-        <p class="lead">生成AI・業務自動化を軸に、業務改善やDX推進を支援しています。Webディレクターとして約15年、累計100件以上の制作・運用案件に携わってきました。</p>
-        <p>要件定義、進行管理、クライアント折衝、品質管理まで経験しているため、単にツールを導入するだけでなく、現場の業務フローを整理し「どこをAI化・自動化すると効果が出るか」を一緒に考え、実装・運用まで伴走できます。</p>
-        <a class="button" href="mailto:hiroaki.kanemitsu@gmail.com">相談する</a>
-        <a class="button secondary" href="#services">サービス例を見る</a>
-      </div>
-      <div>
-        <img class="portrait" src="k_hiro_icon.png" alt="K.Hiroのプロフィール画像">
-        <p class="caption">プロフィール画像はAI生成です。実物の雰囲気に近い形で、やわらかく見えるように作っています。</p>
-      </div>
-    </div>
+  <header class="wrap site-header">
+    <a class="brand" href="#top" aria-label="ページ上部へ">K.Hiro</a>
+    <p class="header-note">AI業務改善・Web運用・公開前QA</p>
   </header>
 
-  <main>
-    <section class="summary">
-      <div class="metric">
-        <div><strong>15年</strong><span>Webディレクション経験</span></div>
-        <p>要件定義、進行管理、品質管理まで一貫して対応。</p>
+  <main id="top">
+    <div class="wrap hero">
+      <div>
+        <p class="eyebrow">AI × Web Operations</p>
+        <h1>業務をほどき、<br>続く運用へ。</h1>
+        <p class="lead">Webディレクターとして約15年、累計100件以上の制作・運用案件に携わってきました。曖昧な要望を整理し、AIに任せる部分と人が確認する部分を分け、公開後も無理なく回るところまで整えます。</p>
+        <div class="actions">
+          <a class="button" href="mailto:hiroaki.kanemitsu@gmail.com?subject=%E6%A5%AD%E5%8B%99%E6%94%B9%E5%96%84%E3%83%BBWeb%E9%81%8B%E7%94%A8%E3%81%AE%E7%9B%B8%E8%AB%87">仕事について相談する</a>
+          <a class="text-link" href="salon-hpb-support.html">美容サロン向けHPB支援を見る →</a>
+        </div>
       </div>
-      <div class="metric">
-        <div><strong>100件+</strong><span>制作・運用案件</span></div>
-        <p>企業LP、大学、美容医療、メディア、運用更新などを経験。</p>
+
+      <aside class="identity-card" aria-label="プロフィール概要" data-photo-status="user-selected-local-photo-2026-09-18">
+        <img class="portrait" src="hiro_profile_photo.jpg" alt="K.Hiro本人のプロフィール写真">
+        <h2>K.Hiro</h2>
+        <p>現場の手作業を整理し、AIと人の確認を組み合わせた、止まりにくい運用を設計します。</p>
+        <p class="photo-note">本人の写真をもとに、AIで一部調整しています。</p>
+        <div class="identity-meta">
+          <span>拠点：日本</span>
+          <span>対応：業務整理 / Web運用 / コンテンツQA</span>
+        </div>
+      </aside>
+    </div>
+
+    <div class="wrap metrics" aria-label="経験の概要">
+      <div class="metric"><strong>15年</strong><span>Webディレクション・運用経験</span></div>
+      <div class="metric"><strong>100件+</strong><span>制作・更新・改善案件</span></div>
+      <div class="metric"><strong>1つずつ</strong><span>小さく試し、確認してから広げる進め方</span></div>
+    </div>
+
+    <section class="wrap" id="services">
+      <div class="section-head">
+        <p class="kicker">Services</p>
+        <div>
+          <h2>仕組みより先に、<br>現場の詰まりを見ます。</h2>
+          <p class="section-copy">ツール導入だけを目的にせず、「誰が・いつ・何を確認すれば安全に続くか」まで具体化します。</p>
+        </div>
       </div>
-      <div class="metric">
-        <div><strong>2021年〜</strong><span>フリーランスとして活動</span></div>
-        <p>複数企業のWeb制作・運用・改善支援に参画。</p>
-      </div>
-      <div class="metric wide">
-        <div><strong>AI × 実務</strong><span>提案ではなく運用まで支援</span></div>
-        <p>Claude、ChatGPT、Notion、GAS、Pythonを実務に組み込み、日々の作業を小さく改善。</p>
+      <div class="services">
+        <article class="service">
+          <span class="service-number">01</span>
+          <h3>業務整理・AI導入支援</h3>
+          <p>手作業、判断、承認、例外処理を分解し、小さな自動化や下書き支援から検証します。</p>
+        </article>
+        <article class="service">
+          <span class="service-number">02</span>
+          <h3>Webサイト・コンテンツ運用</h3>
+          <p>更新計画、原稿・素材整理、公開手順、担当者間の受け渡しを一本の流れへ整えます。</p>
+        </article>
+        <article class="service">
+          <span class="service-number">03</span>
+          <h3>公開前QA・読み戻し</h3>
+          <p>誤記、リンク、表示、条件、重複を確認し、公開前後の差分を人の目で読み戻します。</p>
+        </article>
       </div>
     </section>
 
-    <section>
-      <h2>外部プロフィール</h2>
-      <div class="grid two">
-        <div class="card">
-          <h3>クラウドワークス</h3>
-          <p>業務改善、AI活用、Webディレクション関連の相談窓口として利用しています。</p>
-          <p><a href="https://crowdworks.jp/public/employees/6026627">クラウドワークスのプロフィールを見る</a></p>
+    <section class="wrap" aria-labelledby="work-title">
+      <div class="section-head">
+        <p class="kicker">Selected work</p>
+        <div>
+          <h2 id="work-title">幅のある経験を、<br>小さな実務へ落とします。</h2>
+          <p class="section-copy">大規模サイトから日々の更新まで、要件整理・進行・品質確認を横断してきました。</p>
         </div>
-        <div class="card">
-          <h3>ランサーズ</h3>
-          <p>プロフィールとポートフォリオを掲載しています。過去の制作・支援領域の確認に使えます。</p>
-          <p><a href="https://www.lancers.jp/profile/hirogue">ランサーズのプロフィールを見る</a></p>
-        </div>
+      </div>
+      <div class="work-list">
+        <article class="work"><span class="work-mark">W</span><div><h3>金融サービスのLP制作</h3><p>関係者調整、制作進行、公開品質の管理。</p></div></article>
+        <article class="work"><span class="work-mark">C</span><div><h3>大手飲料ブランドのキャンペーン</h3><p>要件を画面へ落とし込み、公開まで進行。</p></div></article>
+        <article class="work"><span class="work-mark">O</span><div><h3>大学サイトの更新・改修</h3><p>継続運用を止めない更新設計と調整。</p></div></article>
+        <article class="work"><span class="work-mark">Q</span><div><h3>美容領域サイトの運用</h3><p>情報の正確さと見せ方を両立する公開前確認。</p></div></article>
       </div>
     </section>
 
-    <section id="services">
-      <h2>サービス例</h2>
-      <div class="grid four">
-        <div class="card service-card">
-          <div>
-            <span class="kicker">01 / CONSULTING</span>
-            <h3>AI活用・業務改善ミニ診断</h3>
-            <p>いまの業務を伺い、AI化・自動化しやすい作業、人が判断すべき作業、最初に試すべき改善案を整理します。</p>
+    <section class="wrap principle" aria-labelledby="principle-title">
+      <div>
+        <p class="kicker" style="color:#79c0b4">Working principles</p>
+        <h2 id="principle-title">安全に試せて、<br>あとから直せること。</h2>
+        <p>AIの出力をそのまま使わず、事実・権利・公開条件を人が確認できる工程を残します。</p>
+      </div>
+      <ul>
+        <li>最初は範囲を絞り、短い検証単位で始めます。</li>
+        <li>個人情報や認証情報は、必要性と扱いを先に確認します。</li>
+        <li>公開・送信など外へ出る操作は、実行前に内容を確認します。</li>
+        <li>成果物だけでなく、次に回すための手順も残します。</li>
+      </ul>
+    </section>
+
+    <section class="wrap" aria-labelledby="active-offers-title">
+      <div class="section-head">
+        <p class="kicker">Small offers</p>
+        <div>
+          <h2 id="active-offers-title">小さな範囲から、<br>試せる支援もあります。</h2>
+          <p class="section-copy">公開中の相談・購入導線を残しつつ、用途に合う入口を選べるようにしています。</p>
+        </div>
+      </div>
+      <div class="services offer-grid">
+        <article class="service offer-card" id="draft-finish-service" data-route="portfolio_ai_draft_finish">
+          <div class="offer-copy">
+            <span class="service-number">01 / DONE-FOR-YOU</span>
+            <h3>AI原稿 公開前仕上げパック</h3>
+            <p>AIで作った記事・提案文・商品説明を1本お預かりし、読み手へ伝わる完成稿、修正一覧、人が最終確認する項目へ整えます。</p>
+            <p class="offer-note">対象は3,000字以内。事実・法令・媒体規約の判断、追加取材、画像制作、入稿・公開、成果保証は含みません。</p>
           </div>
-          <p class="price-note">初回相談、業務棚卸し、改善優先度づけ</p>
-        </div>
-        <div class="card service-card">
-          <div>
-            <span class="kicker">02 / OPERATIONS</span>
-            <h3>問い合わせ・返信テンプレ整備</h3>
-            <p>よくある問い合わせ、初回返信、確認事項、フォロー文面を整理し、対応のバラつきを減らしやすくします。</p>
+          <a id="draft-finish-service-cta" class="button" data-cta-role="consult_service" data-route="portfolio_ai_draft_finish" href="mailto:hiroaki.kanemitsu@gmail.com?subject=AI%E5%8E%9F%E7%A8%BF%20%E5%85%AC%E9%96%8B%E5%89%8D%E4%BB%95%E4%B8%8A%E3%81%92%E3%83%91%E3%83%83%E3%82%AF%E3%81%AE%E7%9B%B8%E8%AB%87&amp;body=%E7%9B%B8%E8%AB%87%E3%81%97%E3%81%9F%E3%81%84%E5%8E%9F%E7%A8%BF%E3%81%AE%E7%A8%AE%E9%A1%9E%EF%BC%9A%0D%0A%E6%96%87%E5%AD%97%E6%95%B0%EF%BC%9A%0D%0A%E5%B8%8C%E6%9C%9B%E7%B4%8D%E6%9C%9F%EF%BC%9A%0D%0A%0D%0A%E5%8F%82%E7%85%A7%E5%85%83%EF%BC%9Autm_source%3Dportfolio%26utm_medium%3Downed_site%26utm_campaign%3Dservice_lead_v1%26utm_content%3Dai_draft_finish_service_card_r1">このサービスについて相談する</a>
+        </article>
+
+        <article class="service offer-card" id="self-check-tool" data-route="portfolio_booth">
+          <div class="offer-copy">
+            <span class="service-number">02 / SELF-CHECK</span>
+            <h3>AI投稿・記事 入稿前QAチェッカー</h3>
+            <p>AIで作ったSNS投稿や記事を公開する前に、必須の案内文、別案件の名前、古い期限付き表現、過去原稿との重複候補をブラウザ内で確認できます。</p>
+            <p class="offer-price">1,480円</p>
+            <p class="offer-note">文章生成、事実確認、法令・媒体規約の判定、自動投稿、事故ゼロの保証は含みません。</p>
           </div>
-          <p class="price-note">小規模事業者、店舗、士業、スクール向け</p>
-        </div>
-        <div class="card service-card">
-          <div>
-            <span class="kicker">03 / AUTOMATION</span>
-            <h3>Notion / GAS 自動化</h3>
-            <p>議事録、タスク、通知、スプレッドシート、日次レポートなど、くり返し作業を小さく自動化します。</p>
-          </div>
-          <p class="price-note">Notion、Google Workspace、Chatwork連携</p>
-        </div>
-        <div class="card service-card">
-          <div>
-            <span class="kicker">04 / WEB DIRECTION</span>
-            <h3>Web制作・運用改善</h3>
-            <p>要件整理、導線設計、制作進行、品質チェック、公開後の改善まで、現場の調整役として入れます。</p>
-          </div>
-          <p class="price-note">LP、サイト更新、運用改善、提案資料</p>
-        </div>
-      </div>
-      <p class="small">個別提案例: <a href="reform_inquiry_pack_lp.html">リフォーム会社向け 問い合わせ・現地調査前ヒアリング整備パック</a></p>
-    </section>
-
-    <section id="draft-finish-service" aria-labelledby="draft-finish-service-title" data-route="portfolio_ai_draft_finish">
-      <h2>AI原稿を、人が最終確認できる形まで整えてほしい方へ</h2>
-      <div class="card">
-        <span class="kicker">DONE-FOR-YOU SERVICE</span>
-        <h3 id="draft-finish-service-title">AI原稿 公開前仕上げパック</h3>
-        <p>AIで作った記事・提案文・商品説明を1本お預かりし、公開前に読み手へ伝わる形へ整えます。</p>
-        <p><strong>納品するもの：完成稿＋修正一覧＋人が最終確認する項目</strong></p>
-        <p>対象は3,000字以内。原稿と必要情報の受領後、1〜2営業日で納品します。納品後の修正は、同じ原稿について1回までです。</p>
-        <p class="small">事実・法令・媒体規約の判断、追加取材、画像制作、入稿・公開作業、成果保証は含みません。価格は公開前の最終確認が済むまで、このページには表示しません。</p>
-        <p><a id="draft-finish-service-cta" class="button" data-cta-role="consult_service" data-route="portfolio_ai_draft_finish" href="mailto:hiroaki.kanemitsu@gmail.com?subject=AI%E5%8E%9F%E7%A8%BF%20%E5%85%AC%E9%96%8B%E5%89%8D%E4%BB%95%E4%B8%8A%E3%81%92%E3%83%91%E3%83%83%E3%82%AF%E3%81%AE%E7%9B%B8%E8%AB%87&amp;body=%E7%9B%B8%E8%AB%87%E3%81%97%E3%81%9F%E3%81%84%E5%8E%9F%E7%A8%BF%E3%81%AE%E7%A8%AE%E9%A1%9E%EF%BC%9A%0D%0A%E6%96%87%E5%AD%97%E6%95%B0%EF%BC%9A%0D%0A%E5%B8%8C%E6%9C%9B%E7%B4%8D%E6%9C%9F%EF%BC%9A%0D%0A%0D%0A%E5%8F%82%E7%85%A7%E5%85%83%EF%BC%9Autm_source%3Dportfolio%26utm_medium%3Downed_site%26utm_campaign%3Dservice_lead_v1%26utm_content%3Dai_draft_finish_service_card_r1">このサービスについて相談する</a></p>
+          <a id="self-check-tool-cta" class="button" data-cta-role="self_purchase" href="https://hiro-k-tools.booth.pm/items/8697244?utm_source=portfolio&amp;utm_medium=owned_site&amp;utm_campaign=profit_engine_v1&amp;utm_content=qa_checker_product_card_r1" target="_blank" rel="noopener noreferrer">商品の内容を見る</a>
+        </article>
       </div>
     </section>
 
-    <section id="self-check-tool" aria-labelledby="self-check-tool-title" data-route="portfolio_booth">
-      <h2>自分で確認したい方向け</h2>
-      <div class="card">
-        <span class="kicker">SELF-CHECK TOOL</span>
-        <h3 id="self-check-tool-title">公開前の確認を、自分で進めたい方へ</h3>
-        <p>AIで作ったSNS投稿や記事を公開する前に、必須の案内文、別案件の名前、古い期限付き表現、過去原稿との重複候補をブラウザ内で確認できるローカルツールです。</p>
-        <p>Chrome / EdgeでHTMLを開くだけ。本文とルールを外部へ送らず、機械で確認した後に、事実・法令・リンク・公開画面を人が最終確認する前提で使います。</p>
-        <p><strong>AI投稿・記事 入稿前QAチェッカー　1,480円</strong></p>
-        <p><a id="self-check-tool-cta" class="button secondary" data-cta-role="self_purchase" href="https://hiro-k-tools.booth.pm/items/8697244?utm_source=portfolio&amp;utm_medium=owned_site&amp;utm_campaign=profit_engine_v1&amp;utm_content=qa_checker_product_card_r1" target="_blank" rel="noopener noreferrer">商品の内容を見る</a></p>
-        <p class="small">※文章生成、事実確認、法令・媒体規約の判定、自動投稿、事故ゼロの保証は含みません。</p>
-      </div>
+    <section class="wrap contact" id="contact">
+      <p class="eyebrow" style="justify-content:center">Start small</p>
+      <h2>いま止まっている作業を、<br>一つだけ教えてください。</h2>
+      <p>現状と制約を伺い、最初に切り出せる小さな範囲をご提案します。相談だけでも構いません。</p>
+      <a class="button" href="mailto:hiroaki.kanemitsu@gmail.com?subject=%E6%A5%AD%E5%8B%99%E6%94%B9%E5%96%84%E3%83%BBWeb%E9%81%8B%E7%94%A8%E3%81%AE%E7%9B%B8%E8%AB%87">メールで相談する</a>
     </section>
-
-    <section>
-      <h2>こんなご相談に対応できます</h2>
-      <div class="grid">
-        <div class="card">
-          <span class="kicker">START</span>
-          <h3>AI活用・業務改善の相談</h3>
-          <p>「AIを使いたいが何から始めればよいかわからない」段階から、現状整理、優先順位づけ、進め方の提案まで対応します。</p>
-        </div>
-        <div class="card">
-          <span class="kicker">TOOLS</span>
-          <h3>Notion / GAS / Pythonの自動化</h3>
-          <p>案件管理、議事録、進捗レポート、通知、転記、定型レポート作成など、日々の手作業を小さく自動化します。</p>
-        </div>
-        <div class="card">
-          <span class="kicker">WEB</span>
-          <h3>Web制作・運用ディレクション</h3>
-          <p>要件整理、ワイヤー設計、制作進行、品質チェック、公開後の運用まで、現場に入って調整できます。</p>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <h2>最初に相談しやすいテーマ</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>問い合わせ対応の整理</h3>
-          <p>よくある質問、初回返信、確認事項、追客文面などを整理し、担当者ごとのバラつきを減らしやすくします。</p>
-        </div>
-        <div class="card">
-          <h3>日々のレポート作成</h3>
-          <p>スプレッドシートやNotionの情報をもとに、進捗確認、要約、日次・週次レポート作成を効率化します。</p>
-        </div>
-        <div class="card">
-          <h3>議事録・タスク管理</h3>
-          <p>会議内容の整理、タスク化、関係者への通知、ステータス更新など、会議後の手作業を減らします。</p>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <h2>強み</h2>
-      <div class="band">
-        <p><strong>AIツールの紹介で終わらせず、現場で使い続けられる形に落とし込みます。</strong></p>
-        <p>自分自身も複数案件をAIと自動化で運用しており、机上の提案ではなく、実務で試しながら改善している点が強みです。既存の業務を大きく変えすぎず、小さく試して効果を見ながら進めます。</p>
-      </div>
-    </section>
-
-    <section>
-      <h2>対応できること</h2>
-      <div class="grid two">
-        <div class="card">
-          <ul>
-            <li>AI活用、業務改善の相談</li>
-            <li>業務フロー整理、効率化提案</li>
-            <li>Notionを使った案件管理、タスク管理、情報整理</li>
-            <li>GAS、Python等を使った通知、転記、レポート作成の自動化</li>
-          </ul>
-        </div>
-        <div class="card">
-          <ul>
-            <li>議事録、要件整理、提案書作成の効率化</li>
-            <li>Web制作、Web運用のディレクション</li>
-            <li>非エンジニア向けのわかりやすい説明、伴走支援</li>
-            <li>AIを使った業務の棚卸し、優先順位づけ</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <h2>実績例</h2>
-      <div class="grid two">
-        <div class="card">
-          <h3>AI・業務自動化</h3>
-          <ul>
-            <li>Google Meet議事録をNotionへ自動格納し、Chatworkへ通知するフロー構築</li>
-            <li>案件情報の自動取得、AIスコアリング</li>
-            <li>毎朝のプロジェクト状況レポート自動生成</li>
-            <li>AI、Web活用をテーマにした動画講座の制作、講師担当</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Web制作・運用</h3>
-          <ul>
-            <li><a href="https://www.aizawa.co.jp/lp/account_opening/">アイザワ証券: 口座開設LP制作</a></li>
-            <li><a href="https://www.itoen.jp/oiocha/challenge/index.html">伊藤園「お〜いお茶」: 茶レンジLP制作</a></li>
-            <li><a href="https://www.nagoya-ku.ac.jp/">名古屋経済大学: サイト更新・改修対応</a></li>
-            <li><a href="https://www.tsutsui-biyo.com/">ツツイ美容外科: サイト運用・改修ディレクション</a></li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <h2>対応しないこと</h2>
-      <div class="band warn">
-        <p>AIで何でも自動化するのではなく、リスクの高い判断は人が確認する前提で設計します。法律・税務・医療などの専門判断、顧客への完全自動返信、個人情報を含むデータの無断利用、成果保証を前提にした施策は対応範囲外です。</p>
-      </div>
-    </section>
-
-    <section>
-      <h2>使っているツール</h2>
-      <div class="card">
-        <p>Claude、ChatGPT、Notion、Google Apps Script、Python、Google Workspace、Chatwork、Slack、Backlog、Figma、Adobe XD など。</p>
-        <p>Notionでは、案件情報・タスク・議事録・進捗状況を一元管理し、AIと連携して要約、優先順位づけ、日次レポート作成に活用しています。GASでは、Googleフォーム、スプレッドシート、Gmail、Chatwork、Notion APIなどを連携し、議事録の格納、通知、定型レポート作成、ステータス更新などを自動化しています。</p>
-      </div>
-    </section>
-
-    <section>
-      <h2>進め方</h2>
-      <div class="timeline">
-        <div class="time">1. ヒアリング</div>
-        <div class="work">現状の業務、困っている手作業、使っているツールを確認します。</div>
-        <div class="time">2. 整理</div>
-        <div class="work">業務フローを見える化し、AI化・自動化しやすい箇所と、人が判断すべき箇所を分けます。</div>
-        <div class="time">3. 小さく実装</div>
-        <div class="work">いきなり大きく変えず、通知、転記、要約、レポートなど小さな自動化から試します。</div>
-        <div class="time">4. 運用改善</div>
-        <div class="work">実際に使ってみた結果を見ながら、テンプレート、プロンプト、管理方法を改善します。</div>
-      </div>
-    </section>
-
-    <section>
-      <h2>初回相談で確認すること</h2>
-      <div class="grid two">
-        <div class="card">
-          <ul>
-            <li>いま一番時間がかかっている手作業</li>
-            <li>使っているツール、管理表、連絡手段</li>
-            <li>毎日・毎週くり返している作業</li>
-            <li>人が判断すべきこと、自動化してよいこと</li>
-          </ul>
-        </div>
-        <div class="card">
-          <ul>
-            <li>小さく試せる最初の改善案</li>
-            <li>実装に必要な情報と注意点</li>
-            <li>費用感と進め方</li>
-            <li>やらない方がよい自動化</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <h2>大切にしていること</h2>
-      <div class="band warn">
-        <p>AIや自動化は、現場の人が使い続けられて初めて意味があります。難しい言葉で押し切るのではなく、今ある業務を尊重しながら、無理なく効果が出るところから一緒に整えます。</p>
-      </div>
-    </section>
-
-    <section>
-      <h2>相談について</h2>
-      <div class="cta">
-        <p>平日日中を中心に対応しています。ご連絡には原則、翌営業日以内に返信します。</p>
-        <p>「AIを使いたいが何から始めればよいかわからない」「手作業を減らしたい」という段階でも大丈夫です。現状を伺い、実現できること、優先順位、進め方をわかりやすくご提案します。</p>
-        <a class="button" href="mailto:hiroaki.kanemitsu@gmail.com">メールで相談する</a>
-        <a class="button secondary" href="#services">サービス例を見る</a>
-        <p class="small">外部プロフィール: <a href="https://crowdworks.jp/public/employees/6026627">クラウドワークス</a> / <a href="https://www.lancers.jp/profile/hirogue">ランサーズ</a></p>
-      </div>
-    </section>
-
-    <p class="footer">このページは営業前の信頼補強用プロフィールページです。職務経歴書、履歴書、提供プロフィール文をもとに作成しています。</p>
   </main>
+
+  <footer class="wrap">
+    <span>© K.Hiro</span>
+    <span>AI業務改善 / Web運用 / 公開前QA　｜　<a href="https://crowdworks.jp/public/employees/6026627">クラウドワークス</a> / <a href="https://www.lancers.jp/profile/hirogue">ランサーズ</a></span>
+  </footer>
 </body>
 </html>
-
-
