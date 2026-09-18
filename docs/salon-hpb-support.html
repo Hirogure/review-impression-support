@@ -179,6 +179,205 @@
       .boundary > div + div { border-top: 1px solid var(--line); border-left: 0; }
       .profile-link { align-items: flex-start; flex-direction: column; }
     }
+
+    /* Visual refresh r3: high-contrast premium salon operations */
+    :root {
+      --ink: #f5f7fa;
+      --muted: #99a3b2;
+      --cream: #090b10;
+      --white: #ffffff;
+      --line: #29313d;
+      --rose: #ff746b;
+      --rose-dark: #ff9d92;
+      --rose-soft: #2a171a;
+      --sage: #75e6c7;
+      --gold: #ffd176;
+      --shadow: 0 30px 100px rgba(0,0,0,.42);
+    }
+    body {
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 76% 8%, rgba(255,116,107,.11), transparent 28rem),
+        var(--cream);
+      font-family: Inter, Aptos, "Segoe UI", "Noto Sans JP", "Yu Gothic UI", Meiryo, sans-serif;
+      line-height: 1.72;
+    }
+    html { overflow-x: clip; }
+    .wrap { width: min(1160px, calc(100% - 64px)); }
+    header { padding: 30px 0; border-bottom: 1px solid rgba(255,255,255,.08); }
+    .brand { font-size: .92rem; letter-spacing: .16em; }
+    .header-label { color: #808a99; font-size: .74rem; letter-spacing: .08em; }
+    .hero {
+      grid-template-columns: minmax(0, 1.25fr) minmax(340px, .75fr);
+      gap: clamp(52px, 7vw, 98px);
+      min-height: 720px;
+      padding: 96px 0 126px;
+      overflow: clip;
+    }
+    .hero::before {
+      top: 4%;
+      right: -8%;
+      width: clamp(300px, 40vw, 620px);
+      height: clamp(300px, 40vw, 620px);
+      border: 1px solid rgba(255,116,107,.18);
+      background:
+        linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+      background-size: 32px 32px;
+      opacity: 1;
+      transform: rotate(10deg);
+    }
+    .eyebrow {
+      display: inline-flex;
+      width: max-content;
+      min-height: 30px;
+      align-items: center;
+      margin-bottom: 24px;
+      padding: 6px 10px;
+      border: 1px solid #473034;
+      border-radius: 999px;
+      background: #171014;
+      color: var(--rose);
+      font-family: ui-monospace, "SFMono-Regular", Consolas, monospace;
+      font-size: .66rem;
+      font-weight: 700;
+      letter-spacing: .14em;
+    }
+    h1, h2 { font-family: Inter, Aptos, "Segoe UI", "Noto Sans JP", "Yu Gothic UI", Meiryo, sans-serif; }
+    h1 {
+      max-width: 760px;
+      font-size: clamp(3.2rem, 6.5vw, 6rem);
+      font-weight: 760;
+      letter-spacing: -.065em;
+      line-height: 1;
+    }
+    .lead { max-width: 690px; margin-top: 34px; color: #b8c0cc; font-size: 1.07rem; }
+    .promise { gap: 13px; margin-top: 34px; color: #cbd2dc; font-size: .9rem; }
+    .promise li { padding-left: 22px; }
+    .promise li::before { content: ""; top: .72em; width: 8px; height: 8px; border-radius: 50%; background: var(--rose); }
+    .offer-card {
+      border-color: #303946;
+      border-radius: 20px;
+      background: rgba(16,21,29,.92);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+    }
+    .offer-head { padding: 32px; border-bottom: 1px solid #303946; background: transparent; }
+    .offer-head small { color: #8d98a7; font-family: ui-monospace, monospace; font-size: .68rem; letter-spacing: .12em; }
+    .price { margin-top: 18px; }
+    .price strong { color: var(--white); font-family: Inter, Aptos, sans-serif; font-size: clamp(3rem, 6vw, 4.8rem); font-weight: 760; letter-spacing: -.055em; }
+    .price span { color: #aab4c1; font-size: .78rem; }
+    .offer-body { padding: 30px 32px 34px; }
+    .offer-body h2 { margin-bottom: 20px; color: #f0f3f7; font-size: 1rem; font-weight: 700; letter-spacing: -.01em; }
+    .offer-body li { padding: 11px 0; border-color: #29313c; color: #aeb7c3; font-size: .82rem; }
+    .offer-body li strong { color: var(--rose-dark); }
+    .button {
+      min-height: 52px;
+      margin-top: 28px;
+      border-color: var(--rose);
+      border-radius: 12px;
+      background: var(--rose);
+      color: #160908;
+      font-size: .86rem;
+      letter-spacing: .02em;
+    }
+    .button:hover { background: #ff958c; }
+    .cta-note { color: #707b8a; }
+    section {
+      margin-bottom: 0;
+      padding-top: 140px;
+      padding-bottom: 140px;
+      border-top: 1px solid var(--line);
+    }
+    section:nth-of-type(even) {
+      background: #0d1118;
+      box-shadow: 0 0 0 100vmax #0d1118;
+      clip-path: inset(0 -100vmax);
+    }
+    .section-head {
+      display: grid;
+      max-width: none;
+      grid-template-columns: 210px minmax(0, 1fr);
+      gap: 18px clamp(42px, 7vw, 96px);
+      margin-bottom: 62px;
+    }
+    .section-head .eyebrow { grid-row: 1 / span 2; align-self: start; margin: 4px 0 0; }
+    h2 { color: var(--white); font-size: clamp(2.15rem, 4.7vw, 4rem); font-weight: 730; letter-spacing: -.05em; line-height: 1.08; }
+    .section-head p:not(.eyebrow) { grid-column: 2; max-width: 710px; margin: 6px 0 0; color: var(--muted); }
+    .pain-grid { gap: 12px; }
+    .pain {
+      min-height: 270px;
+      padding: 30px;
+      border-color: var(--line);
+      border-radius: 16px;
+      background: #10151c;
+    }
+    .pain span { width: auto; height: auto; justify-content: start; border-radius: 0; background: none; color: var(--rose); font-family: ui-monospace, monospace; font-size: .68rem; letter-spacing: .12em; }
+    .pain h3 { margin-top: 64px; color: #f0f3f7; }
+    .pain p { color: #8f99a8; }
+    .deliverables { gap: 12px; }
+    .deliverable {
+      min-height: 230px;
+      padding: 34px;
+      border: 1px solid #e3e6ea;
+      border-radius: 16px;
+      background: #f2f3f5;
+      color: #12161d;
+      box-shadow: none;
+    }
+    .deliverable b { color: #e14843; font-family: Inter, Aptos, sans-serif; font-size: 2.9rem; font-weight: 750; letter-spacing: -.05em; }
+    .deliverable h3 { margin-top: 30px; }
+    .deliverable p { color: #606a78; }
+    .sample-shell { padding: 10px; border-color: #303946; border-radius: 20px; background: #111722; box-shadow: var(--shadow); }
+    .sample-window { border-radius: 13px; background: #0c1118; }
+    .sample-bar { padding: 13px 18px; border-color: #27313d; }
+    .dots i { background: #3a4553; }
+    .sample-badge { background: #25171a; color: var(--rose-dark); }
+    .sample-content { grid-template-columns: 220px minmax(0, 1fr); }
+    .sample-side { background: #101722; }
+    .sample-side strong { color: var(--white); font-family: Inter, Aptos, sans-serif; font-weight: 730; }
+    .sample-side small, .sample-side ul { color: #7f8c9d; }
+    .sample-main h3 { color: #f0f3f7; }
+    .sample-main > p { color: #7f8b99; }
+    .queue-item { border-color: #26313d; border-radius: 10px; background: #111821; }
+    .queue-item time { color: #707c8b; }
+    .status { background: #13251f; color: #79e4c6; }
+    .sample-caption { color: #758190; }
+    .steps { gap: 12px; }
+    .step { min-height: 250px; padding: 28px 24px; border-top: 1px solid #3b4654; border-radius: 14px; background: #11161e; }
+    .step::before { margin-bottom: 66px; color: var(--rose); font-family: ui-monospace, monospace; font-size: .68rem; letter-spacing: .12em; }
+    .step h3 { color: #edf1f6; }
+    .step p { color: #8b96a5; }
+    .boundary { border-color: #303946; border-radius: 16px; }
+    .boundary > div { padding: 42px; background: #11161e; }
+    .boundary > div + div { border-color: #303946; background: #0e131a; }
+    .boundary h3 { color: #eef2f7; }
+    .boundary ul { color: #929dac; }
+    .profile-link { padding: 42px 0; border-color: #27313d; color: #727e8d; }
+    .profile-link a { color: #d8dfe8; }
+    @media (max-width: 820px) {
+      .wrap { width: min(100% - 40px, 1160px); }
+      .hero { grid-template-columns: 1fr; min-height: auto; padding: 80px 0 110px; }
+      .offer-card { max-width: 620px; }
+      .section-head { grid-template-columns: 1fr; gap: 28px; }
+      .section-head .eyebrow { grid-row: auto; }
+      .section-head p:not(.eyebrow) { grid-column: 1; }
+    }
+    @media (max-width: 560px) {
+      .wrap { width: min(100% - 28px, 1160px); }
+      header { padding: 20px 0; }
+      .hero { gap: 48px; padding: 68px 0 94px; }
+      .hero::before { top: 14%; right: -45%; }
+      h1 { font-size: clamp(3rem, 14.5vw, 4.2rem); }
+      .offer-head, .offer-body { padding-left: 24px; padding-right: 24px; }
+      section { padding-top: 104px; padding-bottom: 104px; }
+      .section-head { margin-bottom: 44px; }
+      .pain, .deliverable, .step { min-height: 0; }
+      .pain h3 { margin-top: 44px; }
+      .sample-content { grid-template-columns: 1fr; }
+      .sample-shell { margin-inline: 0; }
+      .boundary > div { padding: 32px 26px; }
+    }
   </style>
 </head>
 <body>
@@ -190,7 +389,7 @@
   <main>
     <div class="wrap hero">
       <div>
-        <p class="eyebrow">For beauty salon owners</p>
+        <p class="eyebrow">HPB Operations / 30 days</p>
         <h1>写真はある。<br>HPB更新が<br>止まっている。</h1>
         <p class="lead">その状態から、ブログ原稿を最大4本、スタイル登録用情報を最大8件、30日で整えます。店舗で公開する前の確認と、公開後の表示読み戻しまでを一つの流れにします。</p>
         <ul class="promise">
@@ -222,7 +421,7 @@
 
     <section class="wrap">
       <div class="section-head">
-        <p class="eyebrow">The bottleneck</p>
+        <p class="eyebrow">01 / Bottleneck</p>
         <h2>文章を書くことより、<br>更新を回し続けることが難しい。</h2>
         <p>素材はあっても、営業中の店舗では整理・確認・公開の小さな作業が積み上がります。そこだけを切り出して整えます。</p>
       </div>
@@ -235,7 +434,7 @@
 
     <section class="wrap">
       <div class="section-head">
-        <p class="eyebrow">Deliverables</p>
+        <p class="eyebrow">02 / Deliverables</p>
         <h2>「投稿数」だけでなく、<br>確認できる形で納品します。</h2>
       </div>
       <div class="deliverables">
@@ -248,7 +447,7 @@
 
     <section class="wrap" aria-labelledby="sample-title">
       <div class="section-head">
-        <p class="eyebrow">Fictional sample</p>
+        <p class="eyebrow">03 / Operations view</p>
         <h2 id="sample-title">何を、いつ、誰が確認するか。<br>一目で追える状態へ。</h2>
         <p>下の画面は架空サロンのサンプルです。実店舗・既存クライアントの写真、文章、数値は使用していません。</p>
       </div>
@@ -282,7 +481,7 @@
 
     <section class="wrap">
       <div class="section-head">
-        <p class="eyebrow">30-day flow</p>
+        <p class="eyebrow">04 / 30-day flow</p>
         <h2>最初の30日は、<br>小さく試して判断します。</h2>
       </div>
       <div class="steps">
@@ -295,7 +494,7 @@
 
     <section class="wrap">
       <div class="section-head">
-        <p class="eyebrow">Scope</p>
+        <p class="eyebrow">05 / Scope</p>
         <h2>最初から、しないことも明確にします。</h2>
       </div>
       <div class="boundary">
