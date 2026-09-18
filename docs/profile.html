@@ -425,18 +425,286 @@
       .principle { padding: 34px 26px; }
       .contact { padding: 52px 24px; }
     }
+
+    /* Candidate r4: light, readable, service-led portfolio */
+    :root {
+      --ink: #17212b;
+      --muted: #5d6874;
+      --paper: #f7f6f1;
+      --white: #ffffff;
+      --line: #d9ddd8;
+      --accent: #247377;
+      --accent-dark: #174f53;
+      --soft: #e7f0ee;
+      --warm: #c56049;
+      --radius: 18px;
+      --shadow: 0 20px 58px rgba(38, 52, 54, .09);
+    }
+    html { overflow-x: clip; background: var(--paper); }
+    body {
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 88% 5%, rgba(36,115,119,.09), transparent 25rem),
+        linear-gradient(180deg, #fbfaf7 0, var(--paper) 44rem);
+      font-family: Inter, Aptos, "Segoe UI", "Noto Sans JP", "Yu Gothic UI", Meiryo, sans-serif;
+      font-size: 16px;
+      line-height: 1.8;
+    }
+    .wrap { width: min(1120px, calc(100% - 64px)); }
+    .site-header { padding: 26px 0; border-bottom: 1px solid rgba(23,33,43,.10); }
+    .brand { color: var(--ink); font-size: 1rem; letter-spacing: .12em; }
+    .header-note { color: #6b747e; font-size: .88rem; letter-spacing: .02em; }
+    .hero {
+      grid-template-columns: minmax(0, 1.42fr) minmax(280px, .58fr);
+      gap: clamp(52px, 7vw, 92px);
+      min-height: 590px;
+      padding: 82px 0 98px;
+    }
+    .hero::after {
+      left: 0;
+      bottom: 44px;
+      width: min(32vw, 360px);
+      background: linear-gradient(90deg, var(--accent), transparent);
+      opacity: .42;
+    }
+    .eyebrow, .kicker {
+      color: var(--accent-dark);
+      font-family: Inter, Aptos, "Segoe UI", "Noto Sans JP", sans-serif;
+      font-size: .94rem;
+      font-weight: 750;
+      letter-spacing: .035em;
+      text-transform: none;
+    }
+    .eyebrow::before { width: 32px; height: 2px; background: var(--accent); }
+    h1, h2 { color: var(--ink); font-family: Inter, Aptos, "Segoe UI", "Noto Sans JP", "Yu Gothic UI", Meiryo, sans-serif; }
+    h1 {
+      max-width: 760px;
+      font-size: clamp(3.25rem, 6vw, 5.1rem);
+      font-weight: 760;
+      letter-spacing: -.055em;
+      line-height: 1.08;
+    }
+    .lead { max-width: 720px; margin-top: 30px; color: #4f5a66; font-size: 1.1rem; line-height: 1.9; }
+    .actions { gap: 22px; margin-top: 34px; }
+    .button {
+      min-height: 52px;
+      padding: 13px 22px;
+      border-color: var(--accent-dark);
+      border-radius: 10px;
+      background: var(--accent-dark);
+      color: #fff;
+      font-size: .95rem;
+      letter-spacing: .01em;
+      box-shadow: none;
+    }
+    .button:hover { background: #21666b; }
+    .button:focus-visible, a:focus-visible { outline: 3px solid rgba(36,115,119,.30); outline-offset: 3px; }
+    .text-link { color: var(--accent-dark); font-size: .95rem; font-weight: 700; text-decoration-color: #9cbab8; }
+    .identity-card {
+      min-height: 0;
+      padding: 28px;
+      border: 1px solid #d8dedb;
+      border-radius: 20px;
+      background: rgba(255,255,255,.92);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+    }
+    .identity-card::after {
+      right: -74px;
+      bottom: -82px;
+      width: 190px;
+      height: 190px;
+      border-color: rgba(36,115,119,.15);
+      box-shadow: 0 0 0 34px rgba(36,115,119,.035), 0 0 0 68px rgba(36,115,119,.018);
+    }
+    .portrait { width: 84px; height: 84px; border: 1px solid #d1d8d5; border-radius: 18px; box-shadow: none; }
+    .identity-card h2 { margin: 22px 0 8px; color: var(--ink); font-size: 1.3rem; font-weight: 760; }
+    .identity-card p { max-width: 270px; color: #4f5a65; font-size: .95rem; }
+    .identity-card .photo-note { margin-top: 12px; color: #747d86; font-size: .84rem; }
+    .identity-meta { gap: 9px; margin-top: 22px; padding-top: 18px; border-color: #e0e3df; color: #5f6973; font-size: .9rem; }
+    .metrics {
+      gap: 14px;
+      margin-bottom: 128px;
+      overflow: visible;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+    }
+    .metric {
+      min-height: 142px;
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(255,255,255,.78);
+    }
+    .metric strong {
+      color: var(--ink);
+      font-family: Inter, Aptos, "Segoe UI", "Noto Sans JP", sans-serif;
+      font-size: clamp(2.35rem, 4vw, 3.15rem);
+      font-weight: 760;
+      font-variant-numeric: tabular-nums;
+      letter-spacing: -.045em;
+    }
+    .metric span { margin-top: 14px; color: #68727d; font-size: .92rem; letter-spacing: 0; }
+    section { margin-bottom: 128px; }
+    .section-head {
+      grid-template-columns: 190px minmax(0, 1fr);
+      gap: clamp(36px, 6vw, 72px);
+      margin-bottom: 48px;
+      padding-top: 26px;
+      border-top: 1px solid var(--line);
+    }
+    .kicker {
+      display: block;
+      width: auto;
+      min-height: 0;
+      align-self: start;
+      margin: 0;
+      padding: 0;
+      border: 0;
+      border-radius: 0;
+      background: none;
+    }
+    h2 { color: var(--ink); font-size: clamp(2.15rem, 3.7vw, 3.25rem); font-weight: 750; letter-spacing: -.04em; line-height: 1.18; }
+    .section-copy { max-width: 680px; margin-top: 18px; color: var(--muted); font-size: 1rem; }
+    .services { gap: 16px; }
+    .service {
+      min-height: 245px;
+      padding: 30px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: #fff;
+      box-shadow: 0 10px 32px rgba(34,48,49,.045);
+    }
+    .service-number { color: var(--accent-dark); font-family: inherit; font-size: .95rem; font-weight: 760; letter-spacing: .02em; }
+    .service h3 { margin-top: 40px; color: var(--ink); font-size: 1.24rem; line-height: 1.5; }
+    .service p { color: #58636e; font-size: .98rem; }
+    .offer-card { min-height: 350px; }
+    .offer-card .offer-price { color: var(--warm); }
+    .work-list { gap: 14px; }
+    .work { grid-template-columns: max-content minmax(0, 1fr); padding: 26px; border: 1px solid var(--line); border-radius: 15px; background: #fff; box-shadow: 0 8px 28px rgba(34,48,49,.04); }
+    .work-mark {
+      display: inline-flex;
+      width: auto;
+      min-width: 76px;
+      height: 32px;
+      align-items: center;
+      justify-content: center;
+      padding: 0 11px;
+      border: 1px solid #bdd3cf;
+      border-radius: 999px;
+      background: var(--soft);
+      color: var(--accent-dark);
+      font-family: inherit;
+      font-size: .88rem;
+      font-weight: 750;
+    }
+    .work h3 { color: var(--ink); font-size: 1.15rem; }
+    .work p { color: #59646f; font-size: .96rem; }
+    .principle { gap: 64px; padding: 54px; border: 1px solid #cddbd7; border-radius: 20px; background: #eaf1ef; }
+    .principle h2 { color: #173d40; }
+    .principle p { color: #516263; }
+    .principle li { color: #30494b; }
+    .principle li::before { background: var(--accent); }
+    .contact { padding: 68px 54px; border: 0; border-radius: 22px; background: #173d40; box-shadow: none; }
+    .contact .eyebrow, .contact h2 { color: #fff; }
+    .contact .eyebrow::before { background: #8fc9c4; }
+    .contact p { color: #d3e0de; font-size: 1rem; }
+    .contact .button { border-color: #fff; background: #fff; color: #173d40; }
+    footer { padding-bottom: 42px; color: #6b747c; font-size: .84rem; }
+    footer a { color: var(--accent-dark); }
+    @media (max-width: 820px) {
+      .wrap { width: min(100% - 40px, 1120px); }
+      .hero { grid-template-columns: 1fr; min-height: auto; padding: 70px 0 94px; }
+      .identity-card { max-width: 390px; }
+      .metrics { grid-template-columns: repeat(3, 1fr); margin-bottom: 104px; }
+      .metric { padding: 24px 20px; }
+      .metric strong { font-size: clamp(2rem, 6vw, 2.6rem); }
+      .section-head { grid-template-columns: 1fr; gap: 18px; }
+    }
+    @media (max-width: 560px) {
+      .wrap { width: min(100% - 30px, 1120px); }
+      .site-header { padding: 19px 0; }
+      .header-note { max-width: 180px; font-size: .8rem; line-height: 1.45; }
+      .hero { gap: 36px; padding: 56px 0 78px; }
+      .hero::after { bottom: 28px; width: 52vw; }
+      h1 { font-size: clamp(2.65rem, 13vw, 3.7rem); }
+      .lead { font-size: 1rem; }
+      .actions { align-items: flex-start; }
+      .button { width: auto; }
+      .identity-card { padding: 24px; }
+      .metrics { grid-template-columns: 1fr; gap: 10px; margin-bottom: 88px; }
+      .metric { min-height: 110px; }
+      .metric strong { font-size: 2.35rem; }
+      section { margin-bottom: 94px; }
+      .section-head { margin-bottom: 34px; padding-top: 22px; }
+      .services, .offer-grid, .work-list { grid-template-columns: 1fr; }
+      .work { grid-template-columns: 1fr; gap: 14px; }
+      .work-mark { min-width: 0; width: max-content; white-space: nowrap; }
+      .service { min-height: 0; }
+      .principle { gap: 34px; padding: 34px 26px; }
+      .contact { padding: 48px 24px; }
+    }
+
+    /* Self-evaluation round 1: restore a consistent inter-section rhythm */
+    .hero { min-height: 560px; padding-top: 72px; padding-bottom: 86px; }
+    .metrics { margin-bottom: 112px; }
+    main section.wrap:not(.contact) { margin: 0 auto 96px; }
+    main section.wrap.contact { margin: 0 auto; }
+    .section-head { margin-bottom: 42px; }
+    .service-number { font-size: 1.08rem; }
+    @media (max-width: 820px) {
+      .hero { padding-top: 64px; padding-bottom: 78px; }
+      main section.wrap:not(.contact) { margin-bottom: 80px; }
+    }
+    @media (max-width: 560px) {
+      .hero { padding-top: 48px; padding-bottom: 68px; }
+      .metrics { margin-bottom: 72px; }
+      main section.wrap:not(.contact) { margin-bottom: 70px; }
+      .section-head { margin-bottom: 30px; }
+    }
+
+    /* Self-evaluation round 2: reduce visual pressure and mobile page weight */
+    h1 { font-size: clamp(3.15rem, 5.6vw, 4.65rem); }
+    .service h3 { margin-top: 32px; }
+    .offer-card .button { margin-top: 20px; }
+    .contact { padding: 56px 48px; }
+    .contact h2 { font-size: clamp(2rem, 4.4vw, 3rem); }
+    footer { font-size: .88rem; }
+    @media (max-width: 560px) {
+      h1 { font-size: clamp(2.55rem, 12.2vw, 3.35rem); }
+      main section.wrap:not(.contact) { margin-bottom: 58px; }
+      .service { padding: 26px 24px; }
+      .contact { padding: 40px 22px; }
+      .contact h2 { font-size: 2rem; line-height: 1.28; }
+    }
+
+    /* Self-evaluation round 3: remove undersized text and lighten the closing block */
+    .identity-card .photo-note,
+    .offer-card .offer-note { font-size: .88rem; line-height: 1.75; }
+    .contact { padding: 48px 44px; }
+    .contact p { margin-top: 16px; margin-bottom: 24px; }
+    .section-copy,
+    .service p,
+    .work p { max-width: 65ch; }
+    @media (max-width: 560px) {
+      .contact { padding: 34px 20px; }
+      .contact h2 { font-size: 1.9rem; line-height: 1.3; }
+      .contact p { margin-top: 14px; margin-bottom: 22px; }
+      .header-note { font-size: .875rem; }
+    }
   </style>
 </head>
 <body>
   <header class="wrap site-header">
     <a class="brand" href="#top" aria-label="ページ上部へ">K.Hiro</a>
-    <p class="header-note">AI業務改善・Web運用・公開前QA</p>
+    <p class="header-note">Web運用・業務改善支援</p>
   </header>
 
   <main id="top">
     <div class="wrap hero">
       <div>
-        <p class="eyebrow">AI × Web Operations</p>
+        <p class="eyebrow">Web運用と業務改善の実務パートナー</p>
         <h1>業務をほどき、<br>続く運用へ。</h1>
         <p class="lead">Webディレクターとして約15年、累計100件以上の制作・運用案件に携わってきました。曖昧な要望を整理し、AIに任せる部分と人が確認する部分を分け、公開後も無理なく回るところまで整えます。</p>
         <div class="actions">
@@ -458,14 +726,14 @@
     </div>
 
     <div class="wrap metrics" aria-label="経験の概要">
-      <div class="metric"><strong>15</strong><span>YEARS / Webディレクション・運用経験</span></div>
-      <div class="metric"><strong>100+</strong><span>PROJECTS / 制作・更新・改善案件</span></div>
-      <div class="metric"><strong>01</strong><span>STEP AT A TIME / 小さく試し、確認して広げる</span></div>
+      <div class="metric"><strong>15年</strong><span>Webディレクション・運用経験</span></div>
+      <div class="metric"><strong>100件+</strong><span>制作・更新・改善に携わった案件</span></div>
+      <div class="metric"><strong>1件ずつ</strong><span>小さく試し、確認してから広げます</span></div>
     </div>
 
     <section class="wrap" id="services">
       <div class="section-head">
-        <p class="kicker">01 / Services</p>
+        <p class="kicker">対応できること</p>
         <div>
           <h2>仕組みより先に、<br>現場の詰まりを見ます。</h2>
           <p class="section-copy">ツール導入だけを目的にせず、「誰が・いつ・何を確認すれば安全に続くか」まで具体化します。</p>
@@ -492,23 +760,23 @@
 
     <section class="wrap" aria-labelledby="work-title">
       <div class="section-head">
-        <p class="kicker">02 / Selected work</p>
+        <p class="kicker">これまでの仕事</p>
         <div>
           <h2 id="work-title">幅のある経験を、<br>小さな実務へ落とします。</h2>
           <p class="section-copy">大規模サイトから日々の更新まで、要件整理・進行・品質確認を横断してきました。</p>
         </div>
       </div>
       <div class="work-list">
-        <article class="work"><span class="work-mark">W</span><div><h3>金融サービスのLP制作</h3><p>関係者調整、制作進行、公開品質の管理。</p></div></article>
-        <article class="work"><span class="work-mark">C</span><div><h3>大手飲料ブランドのキャンペーン</h3><p>要件を画面へ落とし込み、公開まで進行。</p></div></article>
-        <article class="work"><span class="work-mark">O</span><div><h3>大学サイトの更新・改修</h3><p>継続運用を止めない更新設計と調整。</p></div></article>
-        <article class="work"><span class="work-mark">Q</span><div><h3>美容領域サイトの運用</h3><p>情報の正確さと見せ方を両立する公開前確認。</p></div></article>
+        <article class="work"><span class="work-mark">LP制作</span><div><h3>金融サービスのLP制作</h3><p>担当：関係者調整、制作進行、公開前の品質確認。</p></div></article>
+        <article class="work"><span class="work-mark">進行管理</span><div><h3>大手飲料ブランドのキャンペーン</h3><p>担当：要件整理、画面への落とし込み、公開までの進行。</p></div></article>
+        <article class="work"><span class="work-mark">Web更新</span><div><h3>大学サイトの更新・改修</h3><p>担当：継続運用を止めない更新設計と関係者調整。</p></div></article>
+        <article class="work"><span class="work-mark">運用・QA</span><div><h3>美容領域サイトの運用</h3><p>担当：情報の正確さと見せ方を両立する公開前確認。</p></div></article>
       </div>
     </section>
 
     <section class="wrap principle" aria-labelledby="principle-title">
       <div>
-        <p class="kicker">03 / Principles</p>
+        <p class="kicker">仕事の進め方</p>
         <h2 id="principle-title">安全に試せて、<br>あとから直せること。</h2>
         <p>AIの出力をそのまま使わず、事実・権利・公開条件を人が確認できる工程を残します。</p>
       </div>
@@ -522,7 +790,7 @@
 
     <section class="wrap" aria-labelledby="active-offers-title">
       <div class="section-head">
-        <p class="kicker">04 / Small offers</p>
+        <p class="kicker">小さく試せる支援</p>
         <div>
           <h2 id="active-offers-title">小さな範囲から、<br>試せる支援もあります。</h2>
           <p class="section-copy">公開中の相談・購入導線を残しつつ、用途に合う入口を選べるようにしています。</p>
@@ -531,7 +799,7 @@
       <div class="services offer-grid">
         <article class="service offer-card" id="draft-finish-service" data-route="portfolio_ai_draft_finish">
           <div class="offer-copy">
-            <span class="service-number">01 / DONE-FOR-YOU</span>
+            <span class="service-number">おまかせ支援</span>
             <h3>AI原稿 公開前仕上げパック</h3>
             <p>AIで作った記事・提案文・商品説明を1本お預かりし、読み手へ伝わる完成稿、修正一覧、人が最終確認する項目へ整えます。</p>
             <p class="offer-note">対象は3,000字以内。事実・法令・媒体規約の判断、追加取材、画像制作、入稿・公開、成果保証は含みません。</p>
@@ -541,7 +809,7 @@
 
         <article class="service offer-card" id="self-check-tool" data-route="portfolio_booth">
           <div class="offer-copy">
-            <span class="service-number">02 / SELF-CHECK</span>
+            <span class="service-number">セルフチェックツール</span>
             <h3>AI投稿・記事 入稿前QAチェッカー</h3>
             <p>AIで作ったSNS投稿や記事を公開する前に、必須の案内文、別案件の名前、古い期限付き表現、過去原稿との重複候補をブラウザ内で確認できます。</p>
             <p class="offer-price">1,480円</p>
@@ -553,7 +821,7 @@
     </section>
 
     <section class="wrap contact" id="contact">
-      <p class="eyebrow" style="justify-content:center">05 / Contact</p>
+      <p class="eyebrow" style="justify-content:center">お問い合わせ</p>
       <h2>いま止まっている作業を、<br>一つだけ教えてください。</h2>
       <p>現状と制約を伺い、最初に切り出せる小さな範囲をご提案します。相談だけでも構いません。</p>
       <a class="button" href="mailto:hiroaki.kanemitsu@gmail.com?subject=%E6%A5%AD%E5%8B%99%E6%94%B9%E5%96%84%E3%83%BBWeb%E9%81%8B%E7%94%A8%E3%81%AE%E7%9B%B8%E8%AB%87">メールで相談する</a>

@@ -378,18 +378,286 @@
       .sample-shell { margin-inline: 0; }
       .boundary > div { padding: 32px 26px; }
     }
+
+    /* Candidate r4: warm, readable salon-service presentation */
+    :root {
+      --ink: #202631;
+      --muted: #616a74;
+      --cream: #faf7f2;
+      --white: #ffffff;
+      --line: #e1ddd6;
+      --rose: #d95d5f;
+      --rose-dark: #a9434a;
+      --rose-soft: #fbe9e5;
+      --sage: #537966;
+      --gold: #bb843f;
+      --shadow: 0 22px 64px rgba(75,55,48,.10);
+    }
+    html { overflow-x: clip; background: var(--cream); }
+    body {
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 86% 7%, rgba(217,93,95,.09), transparent 28rem),
+        linear-gradient(180deg, #fffdf9 0, var(--cream) 46rem);
+      font-family: Inter, Aptos, "Segoe UI", "Noto Sans JP", "Yu Gothic UI", Meiryo, sans-serif;
+      font-size: 16px;
+      line-height: 1.8;
+    }
+    .wrap { width: min(1120px, calc(100% - 64px)); }
+    header { padding: 26px 0; border-bottom: 1px solid rgba(32,38,49,.10); }
+    .brand { color: var(--ink); font-size: 1rem; letter-spacing: .12em; }
+    .header-label { color: #6c747d; font-size: .88rem; letter-spacing: .02em; }
+    .hero {
+      grid-template-columns: minmax(0, 1.28fr) minmax(340px, .72fr);
+      gap: clamp(50px, 7vw, 90px);
+      min-height: 650px;
+      padding: 82px 0 104px;
+      overflow: clip;
+    }
+    .hero::before {
+      top: 6%;
+      right: -6%;
+      width: clamp(320px, 42vw, 590px);
+      height: clamp(320px, 42vw, 590px);
+      border: 1px solid rgba(217,93,95,.14);
+      background: radial-gradient(circle at center, rgba(217,93,95,.055), transparent 68%);
+      opacity: 1;
+      transform: none;
+    }
+    .eyebrow {
+      display: flex;
+      width: auto;
+      min-height: 0;
+      align-items: center;
+      margin-bottom: 22px;
+      padding: 0;
+      border: 0;
+      border-radius: 0;
+      background: none;
+      color: var(--rose-dark);
+      font-family: Inter, Aptos, "Segoe UI", "Noto Sans JP", sans-serif;
+      font-size: .95rem;
+      font-weight: 760;
+      letter-spacing: .035em;
+      text-transform: none;
+    }
+    .eyebrow::before { content: ""; width: 30px; height: 2px; margin-right: 12px; background: var(--rose); }
+    h1, h2 { color: var(--ink); font-family: Inter, Aptos, "Segoe UI", "Noto Sans JP", "Yu Gothic UI", Meiryo, sans-serif; }
+    h1 {
+      max-width: 720px;
+      font-size: clamp(3.2rem, 5.8vw, 4.9rem);
+      font-weight: 760;
+      letter-spacing: -.055em;
+      line-height: 1.08;
+    }
+    .lead { max-width: 680px; margin-top: 30px; color: #505963; font-size: 1.1rem; line-height: 1.9; }
+    .promise { gap: 12px; margin-top: 30px; color: #3e4852; font-size: .98rem; }
+    .promise li { padding-left: 22px; }
+    .promise li::before { content: ""; top: .73em; width: 8px; height: 8px; border-radius: 50%; background: var(--rose); }
+    .offer-card {
+      border: 1px solid #ded8d1;
+      border-radius: 20px;
+      background: #fff;
+      box-shadow: var(--shadow);
+      backdrop-filter: none;
+    }
+    .offer-head { padding: 30px 32px 26px; border-bottom: 1px solid #eadfda; background: #faece8; color: var(--ink); }
+    .offer-head small { color: #775e5b; font-family: inherit; font-size: .88rem; font-weight: 750; letter-spacing: .03em; }
+    .price { margin-top: 15px; }
+    .price strong { color: var(--ink); font-family: Inter, Aptos, sans-serif; font-size: clamp(3.1rem, 5.5vw, 4.5rem); font-weight: 770; letter-spacing: -.05em; }
+    .price span { color: #695f5e; font-size: .9rem; }
+    .offer-body { padding: 28px 32px 32px; }
+    .offer-body h2 { margin-bottom: 18px; color: var(--ink); font-size: 1.16rem; font-weight: 760; }
+    .offer-body li { padding: 10px 0; border-color: #e8e3de; color: #525c65; font-size: .92rem; }
+    .offer-body li strong { color: var(--rose-dark); }
+    .button {
+      min-height: 54px;
+      margin-top: 26px;
+      border-color: var(--rose-dark);
+      border-radius: 10px;
+      background: var(--rose-dark);
+      color: #fff;
+      font-size: .95rem;
+      letter-spacing: .01em;
+      box-shadow: none;
+    }
+    .button:hover { background: #bf4d55; }
+    .button:focus-visible, a:focus-visible { outline: 3px solid rgba(217,93,95,.28); outline-offset: 3px; }
+    .cta-note { color: #727982; font-size: .84rem; }
+    section {
+      margin-bottom: 0;
+      padding-top: 112px;
+      padding-bottom: 112px;
+      border-top: 1px solid var(--line);
+    }
+    section:nth-of-type(even) {
+      background: rgba(255,255,255,.72);
+      box-shadow: 0 0 0 100vmax rgba(255,255,255,.72);
+      clip-path: inset(0 -100vmax);
+    }
+    .section-head {
+      display: grid;
+      max-width: none;
+      grid-template-columns: 190px minmax(0, 1fr);
+      gap: 16px clamp(38px, 6vw, 80px);
+      margin-bottom: 52px;
+    }
+    .section-head .eyebrow { grid-row: 1 / span 2; align-self: start; margin: 5px 0 0; }
+    h2 { color: var(--ink); font-size: clamp(2.2rem, 4vw, 3.35rem); font-weight: 750; letter-spacing: -.045em; line-height: 1.17; }
+    .section-head p:not(.eyebrow) { grid-column: 2; max-width: 700px; margin: 4px 0 0; color: var(--muted); font-size: 1rem; }
+    .pain-grid { gap: 14px; }
+    .pain { min-height: 245px; padding: 30px; border: 1px solid var(--line); border-radius: 16px; background: #fff; box-shadow: 0 10px 30px rgba(75,55,48,.04); }
+    .pain span {
+      display: inline-flex;
+      width: 38px;
+      height: 38px;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #efc9c2;
+      border-radius: 50%;
+      background: var(--rose-soft);
+      color: var(--rose-dark);
+      font-family: inherit;
+      font-size: .98rem;
+      font-weight: 780;
+      letter-spacing: 0;
+    }
+    .pain h3 { margin-top: 34px; color: var(--ink); font-size: 1.18rem; }
+    .pain p { color: #5d6670; font-size: .96rem; }
+    .deliverables { gap: 14px; }
+    .deliverable { min-height: 230px; padding: 32px; border: 1px solid #e4ddd7; border-radius: 16px; background: #fff; color: var(--ink); box-shadow: 0 10px 30px rgba(75,55,48,.04); }
+    .deliverable:nth-child(1), .deliverable:nth-child(4) { background: #fdf1ed; }
+    .deliverable b { color: var(--rose-dark); font-family: Inter, Aptos, sans-serif; font-size: 2.65rem; font-weight: 760; letter-spacing: -.045em; }
+    .deliverable h3 { margin-top: 26px; color: var(--ink); font-size: 1.16rem; }
+    .deliverable p { color: #5d6670; font-size: .96rem; }
+    .sample-shell { padding: 10px; border: 1px solid #ddd8d1; border-radius: 20px; background: #fff; box-shadow: var(--shadow); }
+    .sample-window { border-radius: 13px; background: #fff; }
+    .sample-bar { padding: 13px 18px; border-color: #e7e2dc; }
+    .dots i { background: #d8cbc5; }
+    .sample-badge { background: var(--rose-soft); color: var(--rose-dark); font-size: .82rem; }
+    .sample-content { grid-template-columns: 220px minmax(0, 1fr); }
+    .sample-side { background: #f5eee9; }
+    .sample-side strong { color: var(--ink); font-family: Inter, Aptos, sans-serif; font-weight: 750; }
+    .sample-side small, .sample-side ul { color: #6f6967; font-size: .88rem; }
+    .sample-main { background: #fff; }
+    .sample-main h3 { color: var(--ink); font-size: 1.2rem; }
+    .sample-main > p { color: #6b737b; font-size: .92rem; }
+    .queue-item { border: 1px solid #e5e1dc; border-radius: 10px; background: #fcfbf9; }
+    .queue-item time { color: #7a8188; font-size: .82rem; }
+    .queue-item b { color: var(--ink); font-size: .94rem; }
+    .status { background: #e5f0eb; color: #35614c; font-size: .78rem; }
+    .sample-caption { color: #717981; font-size: .84rem; }
+    .steps { gap: 14px; }
+    .step { min-height: 235px; padding: 28px 24px; border: 1px solid var(--line); border-top: 3px solid #e6b1a8; border-radius: 14px; background: #fff; }
+    .step::before { margin-bottom: 46px; color: var(--rose-dark); font-family: inherit; font-size: 1rem; font-weight: 780; letter-spacing: 0; }
+    .step h3 { color: var(--ink); font-size: 1.08rem; }
+    .step p { color: #5f6872; font-size: .94rem; }
+    .boundary { border: 1px solid #ded8d2; border-radius: 16px; background: #fff; }
+    .boundary > div { padding: 40px; background: #fff; }
+    .boundary > div + div { border-color: #e3d8d3; background: #fdf3f0; }
+    .boundary h3 { color: var(--ink); font-size: 1.2rem; }
+    .boundary ul { color: #56616b; font-size: .96rem; }
+    .profile-link { padding: 38px 0 42px; border-color: #dcd8d2; color: #67717a; font-size: .88rem; }
+    .profile-link a { color: var(--rose-dark); }
+    @media (max-width: 820px) {
+      .wrap { width: min(100% - 40px, 1120px); }
+      .hero { grid-template-columns: 1fr; min-height: auto; padding: 72px 0 96px; }
+      .offer-card { max-width: 620px; }
+      .section-head { grid-template-columns: 1fr; gap: 18px; }
+      .section-head .eyebrow { grid-row: auto; }
+      .section-head p:not(.eyebrow) { grid-column: 1; }
+    }
+    @media (max-width: 560px) {
+      .wrap { width: min(100% - 30px, 1120px); }
+      header { padding: 19px 0; }
+      .header-label { max-width: 185px; font-size: .8rem; line-height: 1.45; text-align: right; }
+      .hero { gap: 40px; padding: 58px 0 80px; }
+      .hero::before { top: 12%; right: -48%; }
+      h1 { font-size: clamp(2.75rem, 13.5vw, 3.75rem); }
+      .lead { font-size: 1rem; }
+      .offer-head, .offer-body { padding-left: 24px; padding-right: 24px; }
+      section { padding-top: 86px; padding-bottom: 86px; }
+      .section-head { margin-bottom: 36px; }
+      .pain, .deliverable, .step { min-height: 0; }
+      .pain h3 { margin-top: 28px; }
+      .sample-content { grid-template-columns: 1fr; }
+      .sample-shell { margin-inline: 0; }
+      .boundary > div { padding: 30px 25px; }
+    }
+
+    /* Self-evaluation round 1: remove stacked whitespace and bring the CTA into view */
+    .hero { gap: clamp(46px, 6vw, 76px); min-height: 0; padding-top: 66px; padding-bottom: 78px; }
+    .offer-head { padding: 22px 28px 20px; }
+    .price { margin-top: 10px; }
+    .price strong { font-size: clamp(3rem, 5vw, 4rem); }
+    .offer-body { padding: 24px 28px 26px; }
+    .offer-body h2 { margin-bottom: 14px; }
+    .offer-body li { padding-top: 6px; padding-bottom: 6px; }
+    .button { min-height: 52px; margin-top: 20px; }
+    .cta-note { margin-top: 8px; }
+    section { padding-top: 84px; padding-bottom: 84px; }
+    .section-head { grid-template-columns: 230px minmax(0, 1fr); margin-bottom: 44px; }
+    .section-head .eyebrow { white-space: nowrap; }
+    @media (max-width: 820px) {
+      .hero { padding-top: 60px; padding-bottom: 72px; }
+      .section-head { grid-template-columns: 1fr; }
+      .section-head .eyebrow { white-space: normal; }
+    }
+    @media (max-width: 560px) {
+      .hero { gap: 34px; padding-top: 46px; padding-bottom: 64px; }
+      section { padding-top: 64px; padding-bottom: 64px; }
+      .offer-head, .offer-body { padding-left: 22px; padding-right: 22px; }
+      .section-head { margin-bottom: 30px; }
+    }
+
+    /* Self-evaluation round 2: tune card density and heading pressure */
+    h2 { font-size: clamp(2.1rem, 3.6vw, 3.05rem); }
+    .pain { min-height: 224px; padding: 26px; }
+    .pain h3 { margin-top: 26px; }
+    .deliverable { min-height: 212px; padding: 27px; }
+    .deliverable h3 { margin-top: 22px; }
+    .step { min-height: 210px; padding: 26px 22px; }
+    .step::before { margin-bottom: 34px; font-size: 1.08rem; }
+    .profile-link { font-size: .9rem; }
+    @media (max-width: 560px) {
+      section { padding-top: 56px; padding-bottom: 56px; }
+      h2 { font-size: clamp(1.95rem, 8.5vw, 2.2rem); }
+      .pain, .deliverable, .step { padding: 24px; }
+      .pain h3 { margin-top: 20px; }
+      .deliverable h3 { margin-top: 18px; }
+      .step::before { margin-bottom: 26px; }
+    }
+
+    /* Self-evaluation round 3: improve microcopy legibility and complete the first fold */
+    .hero { padding-top: 62px; }
+    .offer-body { padding-bottom: 20px; }
+    .cta-note,
+    .sample-badge,
+    .queue-item time,
+    .status,
+    .sample-caption { font-size: .875rem; }
+    .section-head p:not(.eyebrow),
+    .pain p,
+    .deliverable p,
+    .step p,
+    .boundary li { max-width: 65ch; }
+    @media (max-width: 560px) {
+      .hero { padding-top: 44px; }
+      .offer-body { padding-bottom: 20px; }
+      .header-label { font-size: .875rem; }
+    }
   </style>
 </head>
 <body>
   <header class="wrap">
     <strong class="brand">K.Hiro</strong>
-    <p class="header-label">美容サロン向け HPB更新運用支援</p>
+    <p class="header-label">美容サロン向け｜HPB更新支援</p>
   </header>
 
   <main>
     <div class="wrap hero">
       <div>
-        <p class="eyebrow">HPB Operations / 30 days</p>
+        <p class="eyebrow">美容サロン向け｜30日パイロット</p>
         <h1>写真はある。<br>HPB更新が<br>止まっている。</h1>
         <p class="lead">その状態から、ブログ原稿を最大4本、スタイル登録用情報を最大8件、30日で整えます。店舗で公開する前の確認と、公開後の表示読み戻しまでを一つの流れにします。</p>
         <ul class="promise">
@@ -421,7 +689,7 @@
 
     <section class="wrap">
       <div class="section-head">
-        <p class="eyebrow">01 / Bottleneck</p>
+        <p class="eyebrow">更新が止まる3つの理由</p>
         <h2>文章を書くことより、<br>更新を回し続けることが難しい。</h2>
         <p>素材はあっても、営業中の店舗では整理・確認・公開の小さな作業が積み上がります。そこだけを切り出して整えます。</p>
       </div>
@@ -434,7 +702,7 @@
 
     <section class="wrap">
       <div class="section-head">
-        <p class="eyebrow">02 / Deliverables</p>
+        <p class="eyebrow">30日でお渡しするもの</p>
         <h2>「投稿数」だけでなく、<br>確認できる形で納品します。</h2>
       </div>
       <div class="deliverables">
@@ -447,7 +715,7 @@
 
     <section class="wrap" aria-labelledby="sample-title">
       <div class="section-head">
-        <p class="eyebrow">03 / Operations view</p>
+        <p class="eyebrow">納品イメージ（架空例）</p>
         <h2 id="sample-title">何を、いつ、誰が確認するか。<br>一目で追える状態へ。</h2>
         <p>下の画面は架空サロンのサンプルです。実店舗・既存クライアントの写真、文章、数値は使用していません。</p>
       </div>
@@ -455,7 +723,7 @@
         <div class="sample-window">
           <div class="sample-bar">
             <div class="dots" aria-hidden="true"><i></i><i></i><i></i></div>
-            <span class="sample-badge">架空データ / SAMPLE</span>
+            <span class="sample-badge">架空データ / 納品イメージ</span>
           </div>
           <div class="sample-content">
             <aside class="sample-side">
@@ -481,7 +749,7 @@
 
     <section class="wrap">
       <div class="section-head">
-        <p class="eyebrow">04 / 30-day flow</p>
+        <p class="eyebrow">ご相談から読み戻しまで</p>
         <h2>最初の30日は、<br>小さく試して判断します。</h2>
       </div>
       <div class="steps">
@@ -494,7 +762,7 @@
 
     <section class="wrap">
       <div class="section-head">
-        <p class="eyebrow">05 / Scope</p>
+        <p class="eyebrow">対応範囲</p>
         <h2>最初から、しないことも明確にします。</h2>
       </div>
       <div class="boundary">
